@@ -11,17 +11,17 @@ Placeholder
 
 ## Economic benefits
 
-1.A town or city can have their own official map-group
+1. A town or city can have their own official map-group
 
-2.Popular restaurants (or unpopular) could pay to have their restaurant as a flag
+2. Popular restaurants (or unpopular) could pay to have their restaurant as a flag
 
-3.Tourist locations are marked by flags
+3. Tourist locations are marked by flags
 
-4.Important city locations are flagged (public libraries, city hall, firehouse, post office . . )
+4. Important city locations are flagged (public libraries, city hall, firehouse, post office . . )
 
-5.Different layers for city
+5. Different layers for city
 
-6.Restricted privileges for users
+6. Restricted privileges for users
 
 ## Social benefits
 
