@@ -5,6 +5,8 @@ Hyper-local social network
 
 A lightweight, social media network focused on map-groups and uploading pictures as flags to those groups. 
 
+## What is a map-group?
+
 ## Environment
 
 Mobile-app, desktop. (Prototype can run in a web browser)
