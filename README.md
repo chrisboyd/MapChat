@@ -5,6 +5,8 @@ Hyper-local social network
 
 A lightweight, social media network focused on map-groups and uploading pictures as flags to those groups. 
 
+## Goals
+
 ## Economic benefits
 
 1. A town or city can have their own official map-group
