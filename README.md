@@ -11,9 +11,9 @@ Placeholder
 
 ## Economic benefits
 
-1. A town or city can have their own official map-group
+1.A town or city can have their own official map-group
 
-2. Popular restaurants (or unpopular) could pay to have their restaurant as a flag
+2.Popular restaurants (or unpopular) could pay to have their restaurant as a flag
 
 3.Tourist locations are marked by flags
 
