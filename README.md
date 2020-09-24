@@ -7,25 +7,25 @@ A lightweight, social media network focused on map-groups and uploading pictures
 
 ## Economic benefits
 
-A town or city can have their own official map-group
-Popular restaurants (or unpopular) could pay to have their restaurant as a flag
-Tourist locations are marked by flags
-Important city locations are flagged (public libraries, city hall, firehouse, post office . . )
-Different layers for city 
-Restricted privileges for users
+A town or city can have their own official map-group\
+Popular restaurants (or unpopular) could pay to have their restaurant as a flag\
+Tourist locations are marked by flags\
+Important city locations are flagged (public libraries, city hall, firehouse, post office . . )\
+Different layers for city\
+Restricted privileges for users\
 
 ## Social benefits
 
-Getting outside to build a collection of images / story with friends
-Similar to Pokemon GO in some sense, gives certain people a reason / reward to exercise or just go outside
-Exploring locations in your home city / place you may not have been before
+Getting outside to build a collection of images / story with friends\
+Similar to Pokemon GO in some sense, gives certain people a reason / reward to exercise or just go outside\
+Exploring locations in your home city / place you may not have been before\
 
 ## High-level Requirements
 
 1. Users can sign up for an account, through an account creation process.
 Priority: 1
 
-2. Users can create a map-group, by selecting a location 
+2. Users can create a map-group, by selecting a location
 Priority: 1
 
 3. Users can invite other users to join their own map-group.
@@ -43,7 +43,7 @@ Priority: 1
 7. Users can select a flag in a map-group (mouse-click, touchscreen press), that will launch the picture for viewing.
 Priority: 1
 
-8. Users can jump between different map-groups through a GUI. 
+8. Users can jump between different map-groups through a GUI.
 Priority : 1
 
 9. Administrator users (those who created a map-group) can delegate group-member privileges: invitation, removal, chat-enabled, chat-muted
@@ -54,7 +54,7 @@ Priority: 2
 
 ## Challenges 
 
-Map generation: This can be a blackbox in the prototype, but could be interesting or necessary to design. 
+Map generation: This can be a blackbox in the prototype, but could be interesting or necessary to design.
 
 1. Handcraft maps for major cities (New York, Tokyo, Delhi . .), or start with Ontario and do the major cities. probably not feasible
 
@@ -68,7 +68,7 @@ High volume of users
 
 ## Functional requirements or use cases
 
-Probably not necessary for assignment 1 
+Probably not necessary for assignment 1
 
 ## Nonfunctional requirements
 
