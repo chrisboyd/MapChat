@@ -85,8 +85,8 @@ These could be worth mentioning in our presentation
 
 ## Priorities
 
-1 = Essential
-2 = Important
+1 = Essential\
+2 = Important\
 3 = Desirable, not completely necessary
 
 Priority 1 items must be implemented for the system to operate.
