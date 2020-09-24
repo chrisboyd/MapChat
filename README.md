@@ -37,6 +37,9 @@ Placeholder
 
 3. Exploring locations in your home city / place you may not have been before
 
+## Layers
+
+
 ## High-level Requirements
 
 1. Users can sign up for an account through an account creation process.\
