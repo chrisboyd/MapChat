@@ -81,7 +81,7 @@ Map generation: This can be a blackbox in the prototype, but could be necessary 
 
 1. Handcraft maps for major cities (New York, Tokyo, Delhi . .), or start with Ontario and do the major cities. probably not feasible
 
-2. Basic Custom map generation: scrape google maps or another service, take a static image from the map
+2. Basic Custom map generation: scrape google maps or another service, take a static snapshot from the map
 
 3. Third party software or service: connect it to the system as a component
 
