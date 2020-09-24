@@ -77,7 +77,7 @@ Priority: 2
 
 ## Challenges 
 
-Map generation: This can be a blackbox in the prototype, but could be interesting or necessary to design.
+Map generation: This can be a blackbox in the prototype, but could be necessary to design.
 
 1. Handcraft maps for major cities (New York, Tokyo, Delhi . .), or start with Ontario and do the major cities. probably not feasible
 
