@@ -3,7 +3,7 @@ Hyper-local social network
 
 ## Explanation of project
 
-A lightweight, social media network focused on map-groups and uploading pictures as flags to those groups. 
+A lightweight social media network focused on map-groups and uploading pictures as flags to those groups. 
 
 ## What is a map-group?
 
