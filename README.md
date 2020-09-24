@@ -21,7 +21,7 @@ Placeholder
 
 2. Popular restaurants (or unpopular) could pay to have their restaurant as a flag
 
-3. Tourist locations are marked by flags
+3. Tourist sites are marked by flags (monuments, points of interest)
 
 4. Important city locations are flagged (public libraries, city hall, firehouse, post office . . )
 
@@ -39,10 +39,10 @@ Placeholder
 
 ## High-level Requirements
 
-1. Users can sign up for an account, through an account creation process.\
+1. Users can sign up for an account through an account creation process.\
 Priority: 1
 
-2. Users can create a map-group, by selecting a location.\
+2. Users can create a map-group by selecting a location.\
 Priority: 1
 
 3. Users can invite other users to join their own map-group.\
