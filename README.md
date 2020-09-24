@@ -7,13 +7,15 @@ A lightweight, social media network focused on map-groups and uploading pictures
 
 ## What is a map-group?
 
+Describe map-group placeholder
+
 ## Environment
 
 Mobile-app, desktop. (Prototype can run in a web browser)
 
 ## Goals
 
-Placeholder
+List the goals placeholder
 
 ## Economic benefits
 
@@ -39,6 +41,7 @@ Placeholder
 
 ## Layers
 
+Describe what layers are placeholder
 
 ## High-level Requirements
 
