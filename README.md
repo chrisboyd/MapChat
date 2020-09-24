@@ -7,6 +7,8 @@ A lightweight, social media network focused on map-groups and uploading pictures
 
 ## Goals
 
+Placeholder
+
 ## Economic benefits
 
 1. A town or city can have their own official map-group
