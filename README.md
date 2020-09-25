@@ -63,22 +63,22 @@ Priority: 2
 7. Users can upload a photo or video to a map-group (through mobile app), where it will appear as a flag for other users to interact with. Media has the coordinate meta data.\
 Priority: 1
 
-8. A user can choose to make the content of their flag hidden, requiring another user to visit the location in order to access the content. 
+8. A user can choose to make the content of their flag hidden, requiring another user to visit the location in order to access the content.\ 
 Priority: 2
 
-9. A user can create a chain of flags meant to be visited in sequence, where each node unlocks the next successive node. 
+9. A user can create a chain of flags meant to be visited in sequence, where each node unlocks the next successive node.\
 Priority: 2
 
-9. Users can select a flag in a map-group (mouse-click, touchscreen press), that will launch the picture or video for viewing.\
+10. Users can select a flag in a map-group (mouse-click, touchscreen press), that will launch the picture or video for viewing.\
 Priority: 1
 
-10. Users can jump between different map-groups through a GUI.\
+11. Users can jump between different map-groups through a GUI.\
 Priority : 1
 
-11. Administrator users (those who created a map-group) can delegate group-member privileges: invitation, removal, chat-enabled, chat-muted\
+12. Administrator users (those who created a map-group) can delegate group-member privileges: invitation, removal, chat-enabled, chat-muted\
 Priority: 2
 
-12. User can choose to display only certain layers of flags. e.g: choose to only see one other user’s flags)\
+13. User can choose to display only certain layers of flags. e.g: choose to only see one other user’s flags)\
 Priority: 2
 
 ## Challenges 
