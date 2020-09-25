@@ -63,7 +63,7 @@ Priority: 2
 7. Users can upload a photo or video to a map-group (through mobile app), where it will appear as a flag for other users to interact with. Media has the coordinate meta data.\
 Priority: 1
 
-8. A user can choose to make the content of their flag hidden, requiring another user to visit the location in order to access the content.\ 
+8. A user can choose to make the content of their flag hidden, requiring another user to visit the location in order to access the content.\
 Priority: 2
 
 9. A user can create a chain of flags meant to be visited in sequence, where each node unlocks the next successive node.\
