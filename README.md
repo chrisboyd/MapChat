@@ -17,7 +17,7 @@ A map-group is defined by a set of users and a map: users can document their act
 
 3. Exploring locations in your home city / place you may not have been before
 
-4. Local neighbourhood creates a map-group of houses that will give out halloween candy
+Example creative use: local neighbourhood map-group has flags for houses / places giving out halloween candy.
 
 ## Economic benefits
 
