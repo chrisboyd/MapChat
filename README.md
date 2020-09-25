@@ -41,7 +41,8 @@ Mobile-app, desktop. (Prototype can run in a web browser)
 1. Users can sign up for an account through an account creation process.\
 Priority: 1
 
-2. Users can login through a login process.
+2. Users can login through a login process.\
+Priority: 1
 
 3. Users can create a map-group by selecting a location.\
 Priority: 1
