@@ -17,6 +17,8 @@ A map-group is defined by a set of users and a map: users can document their act
 
 3. Exploring locations in your home city / place you may not have been before
 
+4. Local neighbourhood creates a map-group of houses that will give out halloween candy
+
 ## Economic benefits
 
 1. A town or city can have their own official map-group
@@ -30,6 +32,8 @@ A map-group is defined by a set of users and a map: users can document their act
 5. Different layers for city
 
 6. Restricted privileges for users
+
+7. Time-sensitive offers appearing at different locations. 
 
 ## Environment
 
@@ -59,7 +63,10 @@ Priority: 2
 7. Users can upload a photo or video to a map-group (through mobile app), where it will appear as a flag for other users to interact with. Photo has the coordinate meta data.\
 Priority: 1
 
-8. A user can choose to make the content of a flag hidden, requiring another user to visit the location in order to access the content. 
+8. A user can choose to make the content of their flag hidden, requiring another user to visit the location in order to access the content. 
+Priority: 2
+
+9. A user can create a chain of flags meant to be visited in sequence, where each node unlocks the next successive node. 
 Priority: 2
 
 9. Users can select a flag in a map-group (mouse-click, touchscreen press), that will launch the picture or video for viewing.\
@@ -76,7 +83,13 @@ Priority: 2
 
 ## Challenges 
 
-Differentiating from other services: This is very similar to Google My Maps
+Differentiating from other services: this is very similar to Google My Maps
+
+1. Come up with some way to incentivize people going outside
+
+2. Strip down the features of My Maps to make it simpler to use
+
+3. Lean on the social media or game aspect of it more.  
 
 Map generation: This can be a blackbox in the prototype, but could be necessary to design.
 
