@@ -129,8 +129,11 @@ Model-view-controller
 
 ## Basic visual example of how the GUI may be organized 
 
-On the left pane, notice the interface to jump between different maps. In this example, there is only one map-group for Toronto.\
-Below the map-group selection interface is the list of users who belong to that group -- they can each be selected individually or in tandem to show their flag uploads.\
+1. On the left pane, notice the interface to jump between different maps. In this example, there is only one map-group for Toronto.
+
+2. Below the map-group selection interface is the list of users who belong to that group -- they can each be selected individually or in tandem to show their flag uploads.
+
+3. Chatbox functionality at the bottom.
 
 ![mobile gui](https://github.com/chrisboyd/MapChat/blob/master/main_GUI_example.jpg)
 
