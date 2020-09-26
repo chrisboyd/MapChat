@@ -129,7 +129,7 @@ Model-view-controller
 
 ## test image
 
-![mobile gui](https://imgur.com/a/BkFwc6P)
+![mobile gui](https://github.com/chrisboyd/MapChat/blob/master/mapchat_example_mobile.jpg)
 
 
 
