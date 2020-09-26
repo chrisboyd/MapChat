@@ -128,7 +128,7 @@ Priority 3 items can be absent, but would be nice to have and would improve the 
 Model-view-controller
 
 ## Basic visual example of how the GUI may be organized 
-![mobile gui](https://github.com/chrisboyd/MapChat/blob/master/mapchat_example_mobile.jpg)
+![mobile gui](https://github.com/chrisboyd/MapChat/blob/master/GUI_example.jpg)
 
 
 
