@@ -128,6 +128,10 @@ Priority 3 items can be absent, but would be nice to have and would improve the 
 Model-view-controller
 
 ## Basic visual example of how the GUI may be organized 
+
+On the left pane, notice the interface to jump between different maps. In this example, there is only one map-group for Toronto.\
+Below the map-group selection interface is the list of users who belong to that group -- they can each be selected individually or in tandem to show their flag uploads.\
+
 ![mobile gui](https://github.com/chrisboyd/MapChat/blob/master/main_GUI_example.jpg)
 
 
