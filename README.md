@@ -105,11 +105,11 @@ High volume of users
 
 ## Functional requirements or use cases
 
-Probably not necessary for assignment 1
+Pending
 
 ## Nonfunctional requirements
 
-These could be worth mentioning in our presentation
+Pending
 
 ## Priorities
 
