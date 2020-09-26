@@ -129,9 +129,9 @@ Model-view-controller
 
 ## Basic visual example of how the GUI may be organized 
 
-1. On the left pane, notice the interface to jump between different maps. In this example, there is only one map-group for Toronto.
+1. On the left pane under "My Groups", notice the interface to jump between different maps. In this example, there is only one map-group for Toronto.
 
-2. Below the map-group selection interface is the list of users who belong to that group -- they can each be selected individually or in tandem to show their flag uploads.
+2. Below the map-group selection interface is the list of users who belong to that group (Members) -- they can each be selected individually or in tandem to show their flag uploads.
 
 3. Chatbox functionality at the bottom.
 
