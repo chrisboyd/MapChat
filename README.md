@@ -136,12 +136,12 @@ MapChat runs entirely within your mobile web browser so there will never be any 
 <!-- CHALLENGES -->
 ## Challenges
 1. Differentiating from other services: this is very similar to Google My Maps
-  1. Come up with some way to incentivize people going outside
-  1. Strip down the features of My Maps to make it simpler to use
+   1. Come up with some way to incentivize people going outside
+   1. Strip down the features of My Maps to make it simpler to use
 1. Map generation: This can be a blackbox in the prototype, Google Maps integration may be needed.
-  1. Basic Custom map generation: scrape google maps or another service, take a static snapshot from the map
-  1. Third party software or service: connect it to the system as a component
-  1. Develop more advanced map generation
+   1. Basic Custom map generation: scrape google maps or another service, take a static snapshot from the map
+   1. Third party software or service: connect it to the system as a component
+   1. Develop more advanced map generation
 1. High volume of users
 
 
