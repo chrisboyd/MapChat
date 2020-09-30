@@ -93,21 +93,21 @@ MapChat runs entirely within your mobile web browser so there will never be any 
 
 
 <!-- USAGE EXAMPLES -->
-## user-story
+## User Story
 
-*Story Name: Join an existing MapChat Social Group
-*Description: User wants to find an existing Social Group so they can make new friends
-*Conversation:
-  *What is User’s activity goal with their new friends?
-  *When does User want to perform said activity?
-  *What are User’s requirements for a new Social Group?
-    *Selections for: age, distance, gender, interests
-  *How long does User want to be a part of their new Social Group?
-*Confirmation:
-  *As a user can I find local Social Groups?
-  *As a user can I join local Social Groups?
-  *As a user can I interact with other members of the local Social Group?
-  *As a user can I leave a local Social Group?
+* Story Name: Join an existing MapChat Social Group
+* Description: User wants to find an existing Social Group so they can make new friends
+* Conversation:
+  * What is User’s activity goal with their new friends?
+  * When does User want to perform said activity?
+  * What are User’s requirements for a new Social Group?
+    * Selections for: age, distance, gender, interests
+  * How long does User want to be a part of their new Social Group?
+* Confirmation:
+  * As a user can I find local Social Groups?
+  * As a user can I join local Social Groups?
+  * As a user can I interact with other members of the local Social Group?
+  * As a user can I leave a local Social Group?
   
 <!-- ROADMAP -->
 ## Roadmap
