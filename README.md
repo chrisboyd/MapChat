@@ -93,7 +93,7 @@ MapChat runs entirely within your mobile web browser so there will never be any 
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## user-story
 
 *Story Name: Join an existing MapChat Social Group
 *Description: User wants to find an existing Social Group so they can make new friends
