@@ -73,9 +73,10 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Current social networks are based around producing as large and widely-distributed groups as possible. While this approach is great for remaining in contact with people all over the world and promoting your own social brand, it provides little value in increasing your quality of life on a day-to-day basis. MapChat aims to reverse this trend by promoting and maintaining a new form of hyper-local groups.
+Current social networks are based around producing as large and widely-distributed groups as possible. While this approach is useful for remaining in contact with people all over the world and promoting your own social brand, it provides little value in increasing your quality of life on a day-to-day basis. MapChat seeks to promote and maintain a new form of hyper-local groups.
 
-A hyper-local group means focusing on a small geographic area or around a well defined community. MapChat would create/maintain this new form of hyper-local groups by allowing the users to create a new community or join an existing one. The creation of a community is based on a geographical location. A community can be open for all or have restricted access, depending on the creator’s desires. Every group on the map can create their own flag. A popular group’s flag can be a marker for adventure, thereby leading other groups to explore a new community or attraction. Each flag is linked with a picture and brief description of the area written by the group. MapChat will also have a messaging system so the users can communicate and build a vibrant community. Ultimately, the purpose of MapChat is to encourage our users to get out and experience the world around them.
+A hyper-local group means focusing on a small geographic area or around a well defined community. MapChat would create/maintain this new form of hyper-local groups by allowing the users to create a new community or join an existing one. The creation of a community is based on a geographical location. A community can be open for all or have restricted access, depending on the creator’s desires. Every group on the map can create their own flag. A prolific group’s flag can be a marker for adventure, thereby leading other groups to explore a new community or attraction. Each flag is linked with a picture and brief description of the area written by the group. MapChat will also have a messaging system so the users can communicate and build a vibrant community. Ultimately, the purpose of MapChat is to encourage our users to seek other adventurers in their neighbourhood.
+
 
 
 ### Built With
@@ -113,29 +114,30 @@ A clean and efficient interface will be key to the success of MapChat. Our first
 * Post location-related media to group members
 * Interaction of group members
 
-The main focus of MapChat is to help individuals build a community around venturing out in the world. This community is maintained with our message and flag interactions. These systems allow users to connect in a way they can feel comfortable with. Users can either use MapChat to find already existing groups in an area or create a new group to invite other users to. MapChat wants our users to feel completely comfortable with sharing their location data. With this in mind, MapChat guarantees to not provide any user data to third-party entities. We consider our user’s data of top priority, so if any user decides to deactivate their account all of their historical data will be permanently removed from all MapChat systems.
+The overall goal of MapChat is to help individuals build a group based on venturing out in the world. 
+This group is maintained with our messaging system. Other groups can be discovered by viewing public flags in your area. Users can either use MapChat to find existing groups in an area or create a new group to invite others to join. MapChat places a strong emphasis on privacy and no data will be shared with third parties.
+
 
 <!-- SOCIAL BENEFITS -->
 ## Social Benefits
 
-Anyone that has travelled alone or moved to a new city or neighbourhood has felt the sting of loneliness and the difficulty in getting out and experiencing life. MapChat will give users the ability to quickly create a new social network on the fly, wherever they may be in the world. With local users placing descriptive flags in communities, tourists will be able to rely on verified locals for travel destinations and tips. Finally, MapChat is focused on connecting people to build a strong sense of community centered around shared adventures.
+Anyone that has travelled alone or moved to a new city or neighbourhood has felt the frustration of trying to connect with new people in their area. MapChat will give users the ability to quickly create a new social network on the fly, wherever they may be in the world. With local users placing descriptive flags in communities, tourists will be able to rely on verified locals for travel destinations and tips. Finally, MapChat is focused on connecting people to build a strong sense of community centered around shared adventures.
 
 <!-- ECONOMIC BENEFITS -->
 ## Economic Benefits
 
-Aside from the secondary economic benefit of promoting individuals to socialize, MapChat’s long term goal is to develop a partnership model with local businesses. Using this framework, businesses would be able to offer short term deals to any active local MapChat groups. Using these partnerships MapChat will not have to rely on general ad placements that negatively affect the user experience. This is a business advantage that does not exist with other applications. 
-Additionally, MapChat has a wide targeting audience with very little restrictions. It will include anyone who wants to: share their experience publicly, connect with other adventurous locals, getting to know an area and all its hidden secrets. 
+Aside from the secondary economic benefit of promoting individuals to socialize, MapChat’s long term goal is to develop a partnership model with local businesses. Using this framework, businesses would be able to offer short term deals to any active local MapChat groups. By using these partnerships MapChat will not have to rely on general ad placements that negatively affect the user experience. This is a business advantage that does not exist with other applications. Additionally, MapChat has a wide target audience with very little restrictions. It will include anyone who wants to connect with other adventurous locals and get to know an area and all of its hidden secrets. 
 
 <!--EXISTING PLATFORMS -->
 ## Existing Platforms
 
-Many of Mapchat’s features exist across other platforms. Mapchat bundles a unique set of them. For example, Facebook Messenger allows users to add friends, share media, and create groups. Google My Maps allows users to associate media with map-flags and share them. These are all features planned for Mapchat. 
+Many of MapChat’s features exist across other platforms. MapChat bundles a unique set of them. For example, Facebook Messenger allows users to add friends, share media, and create groups. Google My Maps allows users to associate media with map-flags and share them. These are all features planned for MapChat. 
 
-So the question is: what is the value beyond these existing services? There is an opportunity for users to get creative and personal with the service if they have constraints put on them. Binding a user group to a custom local area is one of those constraints. The service becomes a game, allowing users to create and build up an area with friends or potentially new people. Similar apps have a lot of features, for example, Facebook’s wall, timeline, inbox, video calls. By paring these features down, the service will be much more learnable to new users.
+Where other social networking platforms attempt to implement everything, MapChat aims to implement only what is necessary to promote social interaction. Similar apps have a lot of features, for example, Facebook’s wall, timeline, inbox, and video calls. By paring these features down, the service will be much more accessible to users.
+
+Due to the geographical constraints of the app, users are required to interact with the people in their immediate environment which enables easily accessible, in-person connections. The service becomes a game, allowing users to create and build up an area with friends, new or old. 
 
 One new feature MapChat introduces is the idea of hidden map-flags, where the media must be unlocked by visiting the location. These hidden-flags could be time-sensitive and consumable (disappear upon discovery). Another idea would be to make the flags themselves hidden, and push a notification to the user when they happened upon them near the physical location. 
-
-
 
 <!-- USER STORY -->
 ## User Story
@@ -172,6 +174,7 @@ One new feature MapChat introduces is the idea of hidden map-flags, where the me
 1. A user can create a chain of flags meant to be visited in sequence, where each node unlocks the next successive node.
 1. Administrator users (those who created a map-group) can delegate group-member privileges: invitation, removal, chat-enabled, chat-muted.
 1. User can choose to display only certain layers of flags. e.g: choose to only see one other user’s flags).
+1. Implementation and of hidden, time-sensitive map flags.
 
 **Priority 3**
 1. Implement recommendation system for discovering new groups.
@@ -221,7 +224,6 @@ Marc Chami - whimm337@my.yorku.ca
 Indeep Singh - indeep.singh99@gmail.com
 
 Raza Memon - raza9999ali@gmail.com
-
 
 Project Link: [https://github.com/chrisboyd/MapChat](https://github.com/chrisboyd/MapChat)
 
