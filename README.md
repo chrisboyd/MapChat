@@ -55,6 +55,7 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
+* [Goals](#goals)
 * [User Story](#user-story)
 * [Requirements](#requirements)
 * [Challenges](#challenges)
@@ -90,6 +91,16 @@ Check back in once we have passed the initial Project Proposal Stage.
 ### Installation
 
 MapChat runs entirely within your mobile web browser so there will never be any additional software to install.
+
+<!-- GOALS -->
+## Goals
+* Creation and deletion of user accounts
+* Creation and remove hyper-local groups
+* Discovery of nearby groups
+* Post media tied to locations to group members
+* Interaction of group members
+
+The main focus of MapChat is to help individuals build a community around venturing out in the world. This community is maintained with our message and flag interactions. These systems allow users to connect in a way they can feel comfortable with. Users can either use MapChat to find already existing groups in an area or create a new group to invite other users to. MapChat wants our users to feel completely comfortable with sharing their location data. With this in mind, MapChat guarantees to not provide any user data to third-party entities. We consider our user’s data of top priority, so if any user decides to deactivate their account all of their historical data will be permanently removed from all MapChat systems.
 
 
 
