@@ -55,7 +55,7 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-  * [Sample Interface](#interface)
+  * [Sample Interface](#sample-interface)
 * [Goals](#goals)
 * [Social Benefits](#social-benefits)
 * [Economic Benefits](#economic-benefits)
