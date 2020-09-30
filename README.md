@@ -29,7 +29,8 @@
 <!-- PROJECT LOGO -->
 <br />
 
-  <h3 align="center">MapChat Hyper-Local Social Network</h3>
+  <h1 align="center">MapChat Hyper-Local Social Network</h1>
+  <h3 align="center">Brought to you by FiveGuys Software</h3>
 
   <p align="center">
     The worlds best adventure-based social networking application
