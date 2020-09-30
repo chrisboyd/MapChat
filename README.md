@@ -59,7 +59,7 @@
 * [Goals](#goals)
 * [Social Benefits](#social-benefits)
 * [Economic Benefits](#economic-benefits)
-* [Value Beyond Existing Platforms](#existing-platforms)
+* [Value Beyond Existing Platforms](#value-beyond-existing-platforms)
 * [User Story](#user-story)
 * [Requirements](#requirements)
 * [Challenges](#challenges)
@@ -128,7 +128,7 @@ Anyone that has travelled alone or moved to a new city or neighbourhood has felt
 
 Aside from the secondary economic benefit of promoting individuals to socialize, MapChat’s long term goal is to develop a partnership model with local businesses. Using this framework, businesses would be able to offer short term deals to any active local MapChat groups. By using these partnerships MapChat will not have to rely on general ad placements that negatively affect the user experience. This is a business advantage that does not exist with other applications. Additionally, MapChat has a wide target audience with very little restrictions. It will include anyone who wants to connect with other adventurous locals and get to know an area and all of its hidden secrets. 
 
-<!--EXISTING PLATFORMS -->
+<!--VALUE BEYOND EXISTING PLATFORMS -->
 ## Value Beyond Existing Platforms
 
 Many of MapChat’s features exist across other platforms. MapChat bundles a unique set of them. For example, Facebook Messenger allows users to add friends, share media, and create groups. Google My Maps allows users to associate media with map-flags and share them. These are all features planned for MapChat. 
