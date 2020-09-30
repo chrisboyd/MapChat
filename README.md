@@ -56,7 +56,8 @@
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [User Story](#user-story)
-* [Roadmap](#roadmap)
+* [Requirements](#requirements)
+* [Challenges](#challenges)
 * [Contributing](#contributing)
 * [License](#license)
 * [Contact](#contact)
@@ -73,7 +74,7 @@ A hyper-local group means focusing on a small geographic area or around a well d
 
 
 ### Built With
-MapChat will be hosted on AWS. Further technologies are still being discussed. 
+MapChat will be hosted on AWS. Further technologies are still being discussed. Any recommendations will be greatly appreciated and rewarded with a digital pint of beer.
 
 
 
@@ -92,7 +93,7 @@ MapChat runs entirely within your mobile web browser so there will never be any 
 
 
 
-<!-- USAGE EXAMPLES -->
+<!-- USER STORY -->
 ## User Story
 
 * Story Name: Join an existing MapChat Social Group
@@ -109,11 +110,38 @@ MapChat runs entirely within your mobile web browser so there will never be any 
   * As a user can I interact with other members of the local Social Group?
   * As a user can I leave a local Social Group?
   
-<!-- ROADMAP -->
-## Roadmap
+<!-- REQUIREMENTS -->
+## Requirements
+**Priority 1**
+1. Users can sign up for an account through an account creation process. 
+1. Users can login through a login process.
+1. Users can create a map-group by selecting a location.
+1. Users can invite other users to join their own map-group. 
+1. Users can upload a photo or video to a map-group (through mobile app), where it will appear as a flag for other users to interact with. Media has the coordinate meta data.
+1. Users can select a flag in a map-group (mouse-click, touchscreen press), that will launch the picture or video for viewing.
+1. Users can jump between different map-groups through a GUI.
+**Priority 2**
+1. Users with sufficient privileges can remove other users from a map group. 
+1. A map-group interface will have a chat box.
+1. A user can choose to make the content of their flag hidden, requiring another user to visit the location in order to access the content.
+1. A user can create a chain of flags meant to be visited in sequence, where each node unlocks the next successive node.
+1. Administrator users (those who created a map-group) can delegate group-member privileges: invitation, removal, chat-enabled, chat-muted.
+1. User can choose to display only certain layers of flags. e.g: choose to only see one other user’s flags).
+**Priority 3**
+1. Implement recommendation system for discovering new groups.
+1. Enable businesses to sponsor pop-up events for groups
 
-
-
+<!-- CHALLENGES -->
+## Challenges
+1. Differentiating from other services: this is very similar to Google My Maps
+  1. Come up with some way to incentivize people going outside
+  1. Strip down the features of My Maps to make it simpler to use
+1. Map generation: This can be a blackbox in the prototype, Google Maps integration may be needed.
+  1. Handcraft maps for major cities (New York, Tokyo, Delhi . .), or start with Ontario and do the major cities. probably not feasible
+  1. Basic Custom map generation: scrape google maps or another service, take a static snapshot from the map
+  1. Third party software or service: connect it to the system as a component
+  1. Develop more advanced map generation
+1. High volume of users
 
 
 <!-- CONTRIBUTING -->
@@ -140,6 +168,10 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 Chris Boyd - chrisboyd360@gmail.com
+Mason D’Arcy - masondarcy@gmail.com
+Marc Chami - whimm337@my.yorku.ca
+Indeep Singh - indeep.singh99@gmail.com
+Raza Memon - raza9999ali@gmail.com
 
 Project Link: [https://github.com/chrisboyd/MapChat](https://github.com/chrisboyd/MapChat)
 
