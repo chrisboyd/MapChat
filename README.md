@@ -214,7 +214,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 ## Contact
-### Five Guys Software 
+### FiveGuys Software 
 * Chris Boyd - chrisboyd360@gmail.com
 * Mason D’Arcy - masondarcy@gmail.com
 * Marc Chami - whimm337@my.yorku.ca
