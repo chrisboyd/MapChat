@@ -139,7 +139,6 @@ MapChat runs entirely within your mobile web browser so there will never be any 
   1. Come up with some way to incentivize people going outside
   1. Strip down the features of My Maps to make it simpler to use
 1. Map generation: This can be a blackbox in the prototype, Google Maps integration may be needed.
-  1. Handcraft maps for major cities (New York, Tokyo, Delhi . .), or start with Ontario and do the major cities. probably not feasible
   1. Basic Custom map generation: scrape google maps or another service, take a static snapshot from the map
   1. Third party software or service: connect it to the system as a component
   1. Develop more advanced map generation
