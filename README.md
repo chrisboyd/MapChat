@@ -215,15 +215,11 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Chris Boyd - chrisboyd360@gmail.com
-
-Mason D’Arcy - masondarcy@gmail.com
-
-Marc Chami - whimm337@my.yorku.ca
-
-Indeep Singh - indeep.singh99@gmail.com
-
-Raza Memon - raza9999ali@gmail.com
+* Chris Boyd - chrisboyd360@gmail.com
+* Mason D’Arcy - masondarcy@gmail.com
+* Marc Chami - whimm337@my.yorku.ca
+* Indeep Singh - indeep.singh99@gmail.com
+* Raza Memon - raza9999ali@gmail.com
 
 Project Link: [https://github.com/chrisboyd/MapChat](https://github.com/chrisboyd/MapChat)
 
