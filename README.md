@@ -55,7 +55,7 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-  * [Sample Interface](#sample-interface)
+  * [Interface](#interface)
 * [Goals](#goals)
 * [Social Benefits](#social-benefits)
 * [Economic Benefits](#economic-benefits)
@@ -97,7 +97,7 @@ Check back in once we have passed the initial Project Proposal Stage.
 
 MapChat runs entirely within your mobile web browser so there will never be any additional software to install.
 
-### Sample Interface
+### Interface
 
 A clean and efficient interface will be key to the success of MapChat. Our first interface interation is: 
 
