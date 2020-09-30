@@ -61,7 +61,7 @@
 * [Economic Benefits](#economic-benefits)
 * [Value Beyond Existing Platforms](#value-beyond-existing-platforms)
 * [User Story](#user-story)
-* [Requirements](#requirements)
+* [Priorities](#priorities)
 * [Challenges](#challenges)
 * [Contributing](#contributing)
 * [License](#license)
@@ -156,8 +156,8 @@ One new feature MapChat introduces is the idea of hidden map-flags, where the me
   * As a user can I interact with other members of the local Social Group?
   * As a user can I leave a local Social Group?
   
-<!-- REQUIREMENTS -->
-## Requirements
+<!-- PRIORITIES -->
+## Priorities
 **Priority 1**
 1. Users can sign up for an account through an account creation process. 
 1. Users can login through a login process.
