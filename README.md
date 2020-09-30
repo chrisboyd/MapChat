@@ -56,6 +56,9 @@
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Goals](#goals)
+* [Social Benefits](#social-benefits)
+* [Economic Benefits](#economic-benefits)
+* [Existing Platforms](#existing-platforms)
 * [User Story](#user-story)
 * [Requirements](#requirements)
 * [Challenges](#challenges)
@@ -94,6 +97,7 @@ MapChat runs entirely within your mobile web browser so there will never be any 
 
 <!-- GOALS -->
 ## Goals
+
 * Creation and deletion of user accounts
 * Creation and remove hyper-local groups
 * Discovery of nearby groups
@@ -101,6 +105,26 @@ MapChat runs entirely within your mobile web browser so there will never be any 
 * Interaction of group members
 
 The main focus of MapChat is to help individuals build a community around venturing out in the world. This community is maintained with our message and flag interactions. These systems allow users to connect in a way they can feel comfortable with. Users can either use MapChat to find already existing groups in an area or create a new group to invite other users to. MapChat wants our users to feel completely comfortable with sharing their location data. With this in mind, MapChat guarantees to not provide any user data to third-party entities. We consider our user’s data of top priority, so if any user decides to deactivate their account all of their historical data will be permanently removed from all MapChat systems.
+
+<!-- SOCIAL BENEFITS -->
+## Social Benefits
+
+Anyone that has travelled alone or moved to a new city or neighbourhood has felt the sting of loneliness and the difficulty in getting out and experiencing life. MapChat will give users the ability to quickly create a new social network on the fly, wherever they may be in the world. With local users placing descriptive flags in communities, tourists will be able to rely on verified locals for travel destinations and tips. Finally, MapChat is focused on connecting people to build a strong sense of community centered around shared adventures.
+
+<!-- ECONOMIC BENEFITS -->
+## Economic Benefits
+
+Aside from the secondary economic benefit of promoting individuals to socialize, MapChat’s long term goal is to develop a partnership model with local businesses. Using this framework, businesses would be able to offer short term deals to any active local MapChat groups. Using these partnerships MapChat will not have to rely on general ad placements that negatively affect the user experience. This is a business advantage that does not exist with other applications. 
+Additionally, MapChat has a wide targeting audience with very little restrictions. It will include anyone who wants to: share their experience publicly, connect with other adventurous locals, getting to know an area and all its hidden secrets. 
+
+<!--EXISTING PLATFORMS -->
+## Existing Platforms
+
+Many of Mapchat’s features exist across other platforms. Mapchat bundles a unique set of them. For example, Facebook Messenger allows users to add friends, share media, and create groups. Google My Maps allows users to associate media with map-flags and share them. These are all features planned for Mapchat. 
+
+So the question is: what is the value beyond these existing services? There is an opportunity for users to get creative and personal with the service if they have constraints put on them. Binding a user group to a custom local area is one of those constraints. The service becomes a game, allowing users to create and build up an area with friends or potentially new people. Similar apps have a lot of features, for example, Facebook’s wall, timeline, inbox, video calls. By paring these features down, the service will be much more learnable to new users.
+
+One new feature MapChat introduces is the idea of hidden map-flags, where the media must be unlocked by visiting the location. These hidden-flags could be time-sensitive and consumable (disappear upon discovery). Another idea would be to make the flags themselves hidden, and push a notification to the user when they happened upon them near the physical location. 
 
 
 
