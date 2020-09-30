@@ -99,7 +99,9 @@ MapChat runs entirely within your mobile web browser so there will never be any 
 ### Sample Interface
 
 A clean and efficient interface will be key to the success of MapChat. Our first iteration for prototype is: 
-<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/main_GUI_example.jpg" alt="Interface" width="90" height="166">
+
+
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/main_GUI_example.jpg" alt="Interface" width="360" height="663">
 
 
 <!-- GOALS -->
