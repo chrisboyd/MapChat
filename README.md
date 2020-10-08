@@ -96,7 +96,7 @@ Check back in once we have passed the initial Project Proposal Stage.
 
 ### Installation
 
-MapChat runs entirely within your mobile web browser so there will never be any additional software to install.
+MapChat runs entirely within your mobile web browser so there will never be additional software to install.
 
 ### Interface
 
