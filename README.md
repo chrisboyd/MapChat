@@ -29,7 +29,8 @@
 <!-- PROJECT LOGO -->
 <br />
 
-  <h3 align="center">MapChat Hyper-Local Social Network</h3>
+  <h1 align="center">MapChat Hyper-Local Social Network</h1>
+  <h3 align="center">Brought to you by FiveGuys Software</h3>
 
   <p align="center">
     The worlds best adventure-based social networking application
@@ -55,7 +56,7 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-  * [Sample Interface](#sample-interface)
+  * [Interface](#interface)
 * [Goals](#goals)
 * [Social Benefits](#social-benefits)
 * [Economic Benefits](#economic-benefits)
@@ -95,9 +96,9 @@ Check back in once we have passed the initial Project Proposal Stage.
 
 ### Installation
 
-MapChat runs entirely within your mobile web browser so there will never be any additional software to install.
+MapChat runs entirely within your mobile web browser so there will never be additional software to install.
 
-### Sample Interface
+### Interface
 
 A clean and efficient interface will be key to the success of MapChat. Our first interface interation is: 
 
@@ -214,7 +215,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 ## Contact
-
+### FiveGuys Software 
 * Chris Boyd - chrisboyd360@gmail.com
 * Mason D’Arcy - masondarcy@gmail.com
 * Marc Chami - whimm337@my.yorku.ca
