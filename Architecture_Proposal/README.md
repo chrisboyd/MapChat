@@ -55,13 +55,13 @@
 * [Architecture Overview](#architecture-overview)
   * [MapChat Proposed Architecture](#mapchat-proposed-architecture)
   * [Proposed Services](#proposed-services)
-  * [Diagrams]
+  * [Diagrams](#diagrams)
 * [External Interfaces](#external-interfaces)
 * [Use Cases](#use-cases)
   * [SignUp](#signup)
   * [CreateMapGroup](#createmapgroup)
   * [SendFriendInvite](#sendfriendinvite)
-  * [Use Case Diagrams](#use-case-diagrams]
+  * [Use Case Diagrams](#use-case-diagrams)
 * [Conclusions](#conclusions)
 * [Lessons Learned](lessons-learned)
 * [Contributing](#contributing)
