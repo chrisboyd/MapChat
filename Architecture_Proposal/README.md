@@ -18,7 +18,7 @@
 <!-- PROJECT LOGO -->
 <br />
 
-  <h1 align="center">MapChat Hyper-Local Social Network</h1>
+  <h1 align="center">MapChat Architecture Proposal</h1>
   <h3 align="center">Brought to you by FiveGuys Software</h3>
 
   <p align="center">
@@ -40,13 +40,18 @@
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
-* [About the Project](#about-the-project)
-  * [Built With](#built-with)
-* [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-  * [Interface](#interface)
-* [Goals](#goals)
+* [Abstract](#abstract)
+* [Introduction and Overview](#introduction-and-overview)
+  * [Summary](#summary)
+  * [Report Organization](#report-organization)
+  * [Architecture Design Process](#architecture-design-process)
+  * [MapChat Team Organization](#mapchat-team-organization)
+  * [Conclusion Summary](#conclusion-summary)
+* [Architecture Comparison](#architecture-comparison)
+  * [Microservice Architecture Overview](#microservice-architecture-overview)
+    * [Microservice Architecture Advantages](#microservice-architecture-advantages)
+    * [Microservice Architecture Disadvantages](#microservice-architecture-disadvantages)
+  
 * [Social Benefits](#social-benefits)
 * [Economic Benefits](#economic-benefits)
 * [Value Beyond Existing Platforms](#value-beyond-existing-platforms)
