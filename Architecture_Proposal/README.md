@@ -48,11 +48,26 @@
   * [MapChat Team Organization](#mapchat-team-organization)
   * [Conclusion Summary](#conclusion-summary)
 * [Architecture Comparison](#architecture-comparison)
-  * [Microservice Architecture Overview](#microservice-architecture-overview)
-    * [Microservice Architecture Advantages](#microservice-architecture-advantages)
-    * [Microservice Architecture Disadvantages](#microservice-architecture-disadvantages)
-  
-* [Social Benefits](#social-benefits)
+  * [Microservice Architecture](#microservice-architecture)
+    * [Overview](#overview)
+    * [Advantages](#advantages)
+    * [Disadvantages](#disadvantages)
+  * [Model-View-Controller](#model-view-controller)
+    * [Overview](#overview)
+    * [Advantages](#advantages)
+    * [Disadvantages](#disadvantages)
+  * [Layered Architecture](#layered-architecture)
+    * [Overview](#overview)
+    * [Advantages](#advantages)
+    * [Disadvantages](#disadvantages)
+  * [Implicit Invocation Architecture](#implicit-invocation-architecture)
+    * [Overview](#overview)
+    * [Advantages](#advantages)
+    * [Disadvantages](#disadvantages)
+* [Architecture Overview](#architecture-overview)
+  * [MapChat Proposed Architecture](#mapchat-proposed-architecture)
+  * [Proposed Services](#proposed-services)
+    * [Overview](#overview)
 * [Economic Benefits](#economic-benefits)
 * [Value Beyond Existing Platforms](#value-beyond-existing-platforms)
 * [User Story](#user-story)
@@ -114,7 +129,7 @@ This group is maintained with our messaging system. Other groups can be discover
 
 
 <!-- SOCIAL BENEFITS -->
-## Social Benefits
+## Overview
 
 Anyone that has travelled alone or moved to a new city or neighbourhood has felt the frustration of trying to connect with new people in their area. MapChat will give users the ability to quickly create a new social network on the fly, wherever they may be in the world. With local users placing descriptive flags in communities, tourists will be able to rely on verified locals for travel destinations and tips. Finally, MapChat is focused on connecting people to build a strong sense of community centered around shared adventures.
 
@@ -176,7 +191,7 @@ One new feature MapChat introduces is the idea of hidden map-flags, where the me
 1. Enable businesses to sponsor pop-up events for groups
 
 <!-- CHALLENGES -->
-## Challenges
+## Overview
 1. Differentiating from other services: this is very similar to Google My Maps
    1. Come up with some way to incentivize people going outside
    1. Strip down the features of My Maps to make it simpler to use
