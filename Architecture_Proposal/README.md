@@ -199,6 +199,8 @@ Implicit invocation is based around components within the system publishing even
 ## Architecture Overview
 
 ### MapChat Proposed Architecture
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/MapChat_Architecture_V0.3.png" alt="Architeture">
+
 
 ### Proposed Services
 
