@@ -257,6 +257,11 @@ Handles interservice communication.
 
 
 ### Sequence Diagrams
+##### PostMedia Sequence Diagram
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/postmedia_sequence.png" alt="PostMedia Sequence" width="500" height="500" >
+
+#### Create MapGroup Sequence Diagram
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/create_mg_sequence_img.png" alt="Create MapGroup Sequence" width="500" height="500" >
 
 ## External Interfaces
 
