@@ -44,6 +44,7 @@
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
 * [Getting Started](#getting-started)
+  * [Architecture](#architecture)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
   * [Interface](#interface)
@@ -79,6 +80,10 @@ MapChat will be hosted on AWS. Further technologies are still being discussed. A
 ## Getting Started
 
 Check back in once we have passed the initial Project Proposal Stage.
+
+### Architecture
+MapChat will be implemented using a microservices-based approach. 
+For further details see the full [Architecture Proposal](../Architecture_Proposal]
 
 ### Prerequisites
 
