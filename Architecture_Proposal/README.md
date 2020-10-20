@@ -240,6 +240,21 @@ This service is intended as a future growth feature to show the expandability of
 Handles interservice communication.
 
 ### Activity Diagrams
+#### Activity Diagrams Legend
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/activity_legend.png" alt="Legend">
+
+#### Post Media Activity Diagram
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/post_media_activity_img.png" alt="Post Media">
+
+#### Modify MapGroup Member Activity Diagram
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/administrator_user_activity.png" alt="Modify MapGroup">
+
+#### Create MapGroup Activity Diagram
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/create_mapgroup_activity_hq.png" alt="Create MapGroup">
+
+#### Multiple Action Activity Diagram
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/end_user_activity_img.png" alt="MapChat Activity Overview">
+
 
 ### Sequence Diagrams
 
