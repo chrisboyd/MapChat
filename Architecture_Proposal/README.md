@@ -199,10 +199,45 @@ Implicit invocation is based around components within the system publishing even
 ## Architecture Overview
 
 ### MapChat Proposed Architecture
-<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/MapChat_Architecture_V0.3.png" alt="Architeture" width="732" height="618">
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/MapChat_Architecture_V0.3.png" alt="Architeture" width="732" height="618">
 
 
 ### Proposed Services
+#### Overview
+MapChat proposes a system that makes heavy use of the modularity offered by  microservice architecture. Every service is independent and offers a REST API for interaction through the API Gateway. The services communicate, as needed, amongst themselves through an event bus which will be implemented with Kafka or another, similar, service.
+
+#### API Gateway 
+The API Gateway is the mobile client’s interface to the services provided by MapChat. By implementing a gateway instead of a direct interaction between MapChats services and the client we are able to decouple MapChats implementation from the client. 
+
+#### Authentication Server 
+In order to simplify user authentication and remove the need for each microservice to individually implement security MapChat will make use of authentication at the gateway level. A successful authentication will then pass a JSON Web Token to each microservice.
+
+#### Messaging Service
+Implement all features related to sending, receiving and storing messages between individuals and groups.
+
+#### Map Service
+Responsible for interacting with the Google Maps API and storing a local map for the user to limit loading delays while using MapChat.
+
+#### Flag Service
+Allow users to place flags, consume other users flags and attach media to flags.
+
+#### Media Service
+Interacts with the mobile clients camera or storage to load photos and/or other media into MapChat
+
+#### Group Service
+Manage the users MapChat group creation and modification.
+
+#### Friend Service
+Maintains MapChat’s User Graph. Each user will have a set of friends managed through this service. Friends can be found through MapChat accounts, email or phone number.
+
+#### User Service
+This service maintains information about each MapChat user such as name and contact information.
+
+#### Vendor Service
+This service is intended as a future growth feature to show the expandability of the architecture. Once MapChat has reached a suitable user base we will reach out to local businesses to promote their business through pop-up flag-consumption based deals. 
+
+#### Event Bus
+Handles interservice communication.
 
 ### Activity Diagrams
 
