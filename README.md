@@ -83,7 +83,7 @@ Check back in once we have passed the initial Project Proposal Stage.
 
 ### Architecture
 MapChat will be implemented using a microservices-based approach. 
-For further details see the full [Architecture Proposal](/Architecture_Proposal/README.md]
+For further details see the full [Architecture Proposal](/Architecture_Proposal/README.md)
 
 ### Prerequisites
 
