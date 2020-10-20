@@ -56,6 +56,7 @@
   * [Model-View-Controller](#model-view-controller)
   * [Layered Architecture](#layered-architecture)
   * [Implicit Invocation Architecture](#implicit-invocation-architecture)
+  * [Achitecture Comparison Table](#architecture-comparison-table)
 * [Architecture Overview](#architecture-overview)
   * [MapChat Proposed Architecture](#mapchat-proposed-architecture)
   * [Proposed Services](#proposed-services)
@@ -137,11 +138,63 @@ As a result of the MapChat team’s architecture research, the microservice arch
 ### Microservice Architecture
 #### Overview
 The MapChat team has determined that the microservice architecture will best suit the systems needs now and for the foreseeable future. A microservice architecture is composed of a set of services that can be developed, tested and deployed to AWS independently of each other. Each service provides a REST API for communicating with the MapChat mobile app through a common gateway API. These independent services, in turn, can communicate with each other through a common event bus.
+
+#### Advantages
+* Each service can be developed, test and deployed concurrently
+* Highly scalable
+* Smaller code bases
+
+#### Disadvantages
+* Initial development cost higher than alternatives
+* Difficult to test system as a whole
+* Large number of individual databases to administer
+
 ### Model-View-Controller
+#### Overview
+MVC is the classic architecture for a system with some form of GUI. The user views data presented from the model and uses the controller to affect the viewed data. 
+
+#### Advantages
+* Allows the use of multiple interfaces
+* Separates the system in easy to define components
+
+#### Disadvantages
+* Limited abstraction of data 
+* Potential for code bloat as defined components can become all encompassing
 
 ### Layered Architecture
+#### Overview
+Layered architecture separates the system into a hierarchy of services. Each layer communicates with the layer directly above and below itself in the hierarchy. 
+
+#### Advantages
+* Simplicity of design and implementation
+* Abstraction of data and logic at each layer
+
+#### Disadvantages
+* Limits scalability
+* Potential high cost to implement new features
 
 ### Implicit Invocation Architecture
+#### Overview
+Implicit invocation is based around components within the system publishing events to which other components subscribe and react to.
+
+#### Advantages
+* Allows addition of new features by creating a new component that publishes new events or subscribes and reacts to existing events
+* High scalability
+
+#### Disadvantages
+* MapChat would require a large number of components that are both publishers and subscribers which requires special protocol
+
+### Achitecture Comparison Table
+|                      | Microservices | Monolithic | Layered | Implicit Invocation | MVC |
+| ---                  |:-------------:|:----------:|:-------:|:-------------------:|:---:|
+| Scalability          |X              |            |         |X                    |X    |
+| Flexibility          |X              |            |         |X                    |     |   
+| Resource Sharing     |X              |X           |X        |X                    |X    |
+| Independent Services |X              |            |X        |                     |X    |
+| Extendable           |X              |Issues      |X        |X                    |X    |
+| Fault Tolerance      |X              |            |X        |                     |X    |
+| Concurrency          |X              |            |X        |                     |X    |
+| Openess              |X              |X           |Issues   |X                    |     |
 
 ## Architecture Overview
 
