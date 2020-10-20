@@ -47,6 +47,10 @@
   * [Architecture Design Process](#architecture-design-process)
   * [MapChat Team Organization](#mapchat-team-organization)
   * [Conclusion Summary](#conclusion-summary)
+* [Requirements](#requirements)
+  * [End-User Requirements](#end-user-requirements)
+  * [MapGroup Requirements](#mapgroup-requirements)
+  * [Non-Functional Requirements](#non-functional-requirements)
 * [Architecture Comparison](#architecture-comparison)
   * [Microservice Architecture](#microservice-architecture)
   * [Model-View-Controller](#model-view-controller)
@@ -86,6 +90,14 @@
 <img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/main_GUI_example.jpg" alt="Interface" width="360" height="663">
 
 ### Conclusion Summary
+
+## Requirements
+
+### End-User Requirements
+
+### MapGroup Requirements
+
+### Non-Functional Requirements
 
 ## Architecture Comparison
 
