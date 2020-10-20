@@ -67,7 +67,7 @@
   * [SignUp](#signup)
   * [CreateMapGroup](#createmapgroup)
   * [SendFriendInvite](#sendfriendinvite)
-  * [Use Case Diagram](#use-case-diagrams)
+  * [Use Case Diagram](#use-case-diagram)
 * [Conclusions](#conclusions)
 * [Lessons Learned](lessons-learned)
 * [Contributing](#contributing)
@@ -350,9 +350,11 @@ At this stage MapChat is only determining a broad outline for the system’s ext
 ### Use Case Diagram
 <img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/enduser_usercase_alternate_img.png" alt="Use Case" >
 
+## Conclusions
+As a result of the MapChat team’s architecture research, the microservice architecture was determined to be best suited for scaling with MapChat’s goal of exponential user growth. The multiple individual apps that make up a microservice architecture, when deployed on AWS, can have near-instant scaling up and down to dynamically meet MapChat load requirements. This scalability comes at a cost of a longer initial development time to implement a functioning product compared to MVC, layered or implicit invocation systems. MapChat will still utilize these alternative architectures within each microservice as applicable.
+
 ## Lessons Learned
-
-
+With such a variety of architecture styles available to choose from the initial research phase is crucial for a project to start out right. The MapChat team could have chosen a simple short-term implementation strategy, such as a layered approach. While viable, this would bring numerous headaches down the road. With this eye to the future the MapChat team has decided to face the steep climb and accept the high initial investment cost of a microservices architecture. This is a big lesson taught for us, that is, thinking ahead to keep flexibility within development and trying our best to not restrict ourselves down the road. Furthermore, one of the hurdles we had to overcome was to assure fluent workflow between team members. Since this team currently consists of 5 people no drastic measurements had to be taken. Shared documents for report writing was sufficient enough at this stage of development. In addition to that, to meet deadlines and 
 
 ## Contributing
 
