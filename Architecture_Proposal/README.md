@@ -116,13 +116,27 @@ As a result of the MapChat team’s architecture research, the microservice arch
 6. The End-User should be able to report any misconduct or inappropriate behaviours by others
 
 ### MapGroup Requirements
+1. Mapgroups can be created and stored persistently in the system. Mapgroups are a collection of users associated with a particular MapFlag
+2. While inside the create MapGroup activity, an End-User can define a location 
+3. While inside a create mapgroup activity, an End-User can set the visible scope of their MapGroup (private, public)
+4. From the main dashboard, an End-User can use an interactive component to select a MapGroup they are members of and launch the respective MapGroup activity
+5. An End-User in a MapGroup activity can interact with any MapFlag on the map, launching the media associated with that MapFlag into a viewport
+6. An End-User can navigate between all MapGroups they are members of through a GUI component
+7. End-Users with sufficient privileges can remove other users from a MapGroup
+8. A MapGroup has a chatbox
 
 ### Non-Functional Requirements
+1. The application should be accessible from all platforms
+2. The application should be available on all platforms 24/7
+3. Account details should only be accessible to the account owner 
+4. The End-User should be notified about any policy updates via email, and on their MapChat account
+5. MapChat will strictly follow Canada’s Personal Information Protection and Electronic Documents Act
 
 ## Architecture Comparison
 
 ### Microservice Architecture
-
+#### Overview
+The MapChat team has determined that the microservice architecture will best suit the systems needs now and for the foreseeable future. A microservice architecture is composed of a set of services that can be developed, tested and deployed to AWS independently of each other. Each service provides a REST API for communicating with the MapChat mobile app through a common gateway API. These independent services, in turn, can communicate with each other through a common event bus.
 ### Model-View-Controller
 
 ### Layered Architecture
