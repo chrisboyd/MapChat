@@ -67,7 +67,7 @@
   * [SignUp](#signup)
   * [CreateMapGroup](#createmapgroup)
   * [SendFriendInvite](#sendfriendinvite)
-  * [Use Case Diagrams](#use-case-diagrams)
+  * [Use Case Diagram](#use-case-diagrams)
 * [Conclusions](#conclusions)
 * [Lessons Learned](lessons-learned)
 * [Contributing](#contributing)
@@ -264,16 +264,95 @@ Handles interservice communication.
 <img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/create_mg_sequence_img.png" alt="Create MapGroup Sequence" >
 
 ## External Interfaces
+At this stage MapChat is only determining a broad outline for the system’s external interfaces. Most importantly the system will implement the Gateway API as a means of communicating with the system. This is the external interface our mobile application will use. MapChat will also leverage the Google Maps API to implement our MapGroups feature. 
 
 ## Use Cases
 
 ### SignUp
+#### Participating Actors
+* End-User
+#### Entry Condition
+* User is inside the signup activity
+#### Normal Flow of Events
+* User enters their email string into the email field
+* User enters their desired alphanumeric password into the password field
+* User enters a duplicate password into the duplicate password field
+* User submits information
+* System prompts the user with success
+* System gives the user a unique ID
+
+#### Exceptions
+##### Account Signup Fails
+* A duplicate email exists in the system
+* User enters a non-alphanumeric password (illegal characters)
+* User enters a password with insufficient length (minimum 8)
+* User enters a non-duplicate password in the duplicate password field
+
+#### Exit Coniditon
+* System prompts the user with success
+* User is redirected to the mapchat dashboard
+
+#### Non-functional Requirements
+* Account creation success email should be dispatched to the user email within a reasonable amount of time
+* Email and password data will be handled with sufficient security and privacy protocols
 
 ### CreateMapGroup
 
+#### Participating Actors
+* End-User
+#### Entry Condition
+* User is logged on
+* User has access to primary dashboard
+
+#### Normal Flow of Events
+* User navigates to the Create MapGroup activity
+* System prompts User for a MapGroup name
+* User selects a name for the new MapGroup
+* System prompts End-user for an origin coordinate
+* User selects origin coordinate
+* System prompts user for a visibility parameter
+* User selects visibility scope of the MapGroup (public, private)
+* System prompts End-user for default privileges of invited members
+* User selects default privileges of invited members
+* System prompts user to invite friends
+* User selects users from their friends list (if any) to invite to the MapGroup
+* User submits information
+
+#### Exceptions
+##### Create MapGroup Fails
+* Invalid name (keyword restriction)
+
+#### Exit Coniditon
+* User is redirected to the MapGroup activity of the newly created MapGroup
+
 ### SendFriendInvite
 
+#### Participating Actors
+* End-User
+
+#### Entry Condition
+* User is logged on
+* User has access to primary dashboard
+
+#### Normal Flow of Events
+* User selects the add friend view component from the dashboard
+* System prompts User for friend ID
+* User inputs friend ID
+* System launches invite to friend
+
+#### Exceptions
+##### Friend is not added
+* Invalid ID
+
+#### Exit Coniditon
+* User receives a success acknowledgement that the invite is sent
+
+### Use Case Diagram
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/enduser_usercase_alternate_img.png" alt="Use Case" >
+
 ## Lessons Learned
+
+
 
 ## Contributing
 
