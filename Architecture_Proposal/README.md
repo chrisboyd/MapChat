@@ -184,7 +184,7 @@ Implicit invocation is based around components within the system publishing even
 #### Disadvantages
 * MapChat would require a large number of components that are both publishers and subscribers which requires special protocol
 
-### Achitecture Comparison Table
+### Architecture Comparison Table
 |                      | Microservices | Monolithic | Layered | Implicit Invocation | MVC |
 | ---                  |:-------------:|:----------:|:-------:|:-------------------:|:---:|
 | Scalability          |X              |            |         |X                    |X    |
