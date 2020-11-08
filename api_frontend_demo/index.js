@@ -60,7 +60,20 @@ window.setImage = function() {
 
 }
 
-window.setExif = function () {
+// window.setExif = function () {
+//
+// if(imgCounter > 0) {
+// imgData.exifdata = null;
+// }
+// EXIF.getData(imgList[imgCounter], function() {
+// imgData = imgList[imgCounter].exifdata;
+// //  imgData = img.exifdata;
+//   console.log(imgData);
+// });
+//
+// }
+
+function setExif() {
 
 if(imgCounter > 0) {
 imgData.exifdata = null;
@@ -85,7 +98,33 @@ function ConvertDMSToDD(degrees, minutes, seconds, direction) {
 }
 
 /*This code is directly copied off the internet. May need to change it somehow.*/
-window.setCoords = function () {
+// window.setCoords = function () {
+//   console.log("Test");
+//   var latDegree = imgData.GPSLatitude[0].numerator;
+//   console.log("latDegree: " + latDegree);
+//   var latMinute = imgData.GPSLatitude[1].numerator;
+//     console.log("latMinute: " + latMinute);
+//   var latSecond = imgData.GPSLatitude[2];
+//     console.log("latSecond: " + latSecond);
+//   var latDirection = imgData.GPSLatitudeRef;
+//     console.log("latDirection: " + latDirection);
+//
+//   var lonDegree = imgData.GPSLongitude[0].numerator;
+//   var lonMinute = imgData.GPSLongitude[1].numerator;
+//   var lonSecond = imgData.GPSLongitude[2];
+//   var lonDirection = imgData.GPSLongitudeRef;
+//
+//   var latFinal = ConvertDMSToDD(latDegree, latMinute, latSecond, latDirection);
+//   var lonFinal = ConvertDMSToDD(lonDegree, lonMinute, lonSecond, lonDirection);
+//
+//   console.log("LAT: " + latFinal);
+//     console.log("LONG: " + lonFinal);
+//   testLat = latFinal;
+//   testLong = lonFinal;
+//
+// }
+
+function setCoords() {
   console.log("Test");
   var latDegree = imgData.GPSLatitude[0].numerator;
   console.log("latDegree: " + latDegree);
@@ -129,8 +168,34 @@ window.removeMarker = function () {
   mark.setMap(null);
 }
 
-window.addMarker = function() {
+// window.addMarker = function() {
+//
+// var mark = new google.maps.Marker( {
+// position: {lat: testLat, lng: testLong},
+// map,
+// title: "Test",
+// });
+//
+// const iw = new google.maps.InfoWindow({
+//    content: imgList[imgCounter],
+//  });
+//
+//  mark.addListener("click", () => {
+//    iw.open(map, mark);
+//  });
+//
+// mark.setMap(map);
+//
+// // var image = document.getElementById('output');
+// // image.src = URL.createObjectURL(event.target.files[0]);
+// imgCounter++;
+// document.getElementById('finput').value = '';
+// console.log("got here");
+// }
 
+window.addMarker = function() {
+setExif();
+setCoords();
 var mark = new google.maps.Marker( {
 position: {lat: testLat, lng: testLong},
 map,
