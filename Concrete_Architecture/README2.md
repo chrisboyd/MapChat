@@ -386,9 +386,6 @@ Message Format
 
 Project Link: [https://github.com/chrisboyd/MapChat](https://github.com/chrisboyd/MapChat)
 
-
-
-
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 * [GitHub Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
