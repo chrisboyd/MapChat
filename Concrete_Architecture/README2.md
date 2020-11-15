@@ -105,16 +105,16 @@ During the Architectural Proposal Phase, the MapChat team reviewed multiple pote
 ### Report Overview
 
 Having selected the microservices architecture, this report will detail how the architecture has evolved from the proposal to the current implementation. This evolution and implementation will be examined through several sets of diagrams and models of analysis.
-From concept to implementation: an analysis of what architectural changes were required for the implementation. The primary differences being the removal of a distinct API Gateway and the event bus for inter-service communication.
-Detailed description of the high level architecture: including the communication and technologies leveraged for each component.
-Quality attributes: identify what MapChats non-functional requirements are and how they affected our architectural evolution and implementation
-Package diagram: detailed UML-diagram for the MapGroup service, being the core microservice of the implemented use case.
-Use case: showing the process of a logged in User creating a MapGroup by providing a name, location and range (distance from location) for the group.
-Sequence diagram: showing the complete interaction of components for the use case of creating a new MapGroup.
-Component diagram: describes the interfaces provided by each service and which services interact with one another.
-Deployment diagram: outlines the AWS technologies used to enable continuous deployment and allow for rapid scaling to meet a growing user base.
-Interfaces: detailed overview of each components interface including communication protocols and messages.
-To close out the report we will summarize the results and cover some key lessons learned during the concrete architecture and prototype phase.
+* From concept to implementation: an analysis of what architectural changes were required for the implementation. The primary differences being the removal of a distinct API * * Gateway and the event bus for inter-service communication.
+* Detailed description of the high level architecture: including the communication and technologies leveraged for each component.
+* Quality attributes: identify what MapChats non-functional requirements are and how they affected our architectural evolution and implementation
+* Package diagram: detailed UML-diagram for the MapGroup service, being the core microservice of the implemented use case.
+* Use case: showing the process of a logged in User creating a MapGroup by providing a name, location and range (distance from location) for the group.
+* Sequence diagram: showing the complete interaction of components for the use case of creating a new MapGroup.
+* Component diagram: describes the interfaces provided by each service and which services interact with one another.
+* Deployment diagram: outlines the AWS technologies used to enable continuous deployment and allow for rapid scaling to meet a growing user base.
+* Interfaces: detailed overview of each components interface including communication protocols and messages.
+* To close out the report we will summarize the results and cover some key lessons learned during the concrete architecture and prototype phase.
 
 <!-- GOALS -->
 ## Goals
