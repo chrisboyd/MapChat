@@ -40,6 +40,7 @@
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
+* [Protoype](#prototype)
 * [Abstract](#abstract)
 * [Introduction](#introduction)
   * [MapChat Overview](#mapchat-overview)
@@ -76,6 +77,17 @@
 * [Lessons Learned](#lessons-learned)
 * [Conclusions](#conclusions)
 * [References](#references)
+
+## Prototype
+The prototype models the CreateMapGroup use case.
+  * The dashboard will have a list of a few MapGroups which appear as buttons, with their names on each respective button.
+  * Clicking a MapGroup button will take you to that MapGroup, which has a map at those co-ordinates, bounded by the radius of the MapGroup.
+  * Clicking "Create MapGroup" action will take you to a page where you can create a new MapGroup by entering longitude and latitude co-ordinates, a name and radius.
+  * The newly created MapGroup will appear in the dashboard.
+
+Note: Sometimes the service may experience some lag retrieving data from the back-end.
+
+http://masondarcy.github.io/
 
 <!-- Abstract  -->
 ## Abstract
