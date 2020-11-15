@@ -121,7 +121,7 @@ Having selected the microservices architecture, this report will detail how the 
 
 ### Conceptual Architecture Diagram
 
-Link the image here
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/conceptual_architecture_diagram.jpg" alt="conceptual_architecture_diagram">
 
 ### Conceptual Architecture Review
 
