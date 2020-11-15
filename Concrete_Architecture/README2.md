@@ -45,7 +45,17 @@
   * [MapChat Overview](#mapchat-overview)
   * [Architecture Review](#architecture-review)
   * [Report Overview](#report-overview)
-* [Goals](#goals)
+* [Architecture](#architecture)
+  * [Conceptual Architecture Review](#conceptual-architecture-review)
+  * [Concrete Architecture Diagram](#concrete-architecture-diagram)
+  * [Concrete Architecture Description](#concrete-architecture-description)
+  * [Architecture Quality Attributes](#architecture-quality-attributes)
+    ** [Availability](#availability)
+    ** [Performance](#performance)
+    ** [Modifiability](#modifiability)
+    ** [Security](#security)
+* [Package Diagram: MapGroup](#package-diagram-mapgroup)
+* [Package Diagram: MapGroup](#package-diagram-mapgroup)
 * [Social Benefits](#social-benefits)
 * [Economic Benefits](#economic-benefits)
 * [Value Beyond Existing Platforms](#value-beyond-existing-platforms)
@@ -59,7 +69,7 @@
 
 
 
-<!-- ABOUT THE PROJECT -->
+<!-- Abstract  -->
 ## Abstract
 
 Context: MapChat is a hyper-local social network with an exponential user-growth model. During the team’s architecture proposal phase a microservices-based design was selected as the most capable of supporting the rapid growth[1][2] and changing requirements of a successful social-network. In transitioning from the architecture proposal to implementation many components have evolved.
@@ -70,6 +80,7 @@ Implementation Methodology: We wanted to start with a familiar technology in Jav
 
 Results: While successful, the implementation did not proceed without overcoming some deficiencies in the pre-implementation planning. Initially the implementation was carried out on a local system making use of Netflix’s Eureka for client discovery and a Zuul API Gateway[3]. Unfortunately, the transition to AWS was not compatible with our implementation of Eureka and Zuul. Despite much effort we were unable to succeed in transitioning from local to the cloud. At this point the team was able to leverage the modular nature of the base Java / Spring Boot microservices contained within Docker images. This modularity allowed the removal of Eureka and Zuul for AWS-native solutions. In particular, we were able to employ AWS’s Elastic Container Service and Elastic Load Balancing with Target Groups to deploy our microservices[4] with minimal changes to the initial code base. 
 
+<!-- Introduction -->
 
 ## Introduction
 MapChat will be hosted on AWS. Further technologies are still being discussed. Any recommendations will be greatly appreciated and rewarded with a digital pint of beer.
@@ -96,31 +107,6 @@ Component diagram: describes the interfaces provided by each service and which s
 Deployment diagram: outlines the AWS technologies used to enable continuous deployment and allow for rapid scaling to meet a growing user base.
 Interfaces: detailed overview of each components interface including communication protocols and messages.
 To close out the report we will summarize the results and cover some key lessons learned during the concrete architecture and prototype phase.
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-Check back in once we have passed the initial Project Proposal Stage.
-
-### Architecture
-MapChat will be implemented using a microservices-based approach. 
-For further details see the full [Architecture Proposal](/Architecture_Proposal/README.md)
-
-### Prerequisites
-
-Check back in once we have passed the initial Project Proposal Stage.
-
-### Installation
-
-MapChat runs entirely within your mobile web browser so there will never be additional software to install.
-
-### Interface
-
-A clean and efficient interface will be key to the success of MapChat. Our first interface iteration is: 
-
-
-<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/main_GUI_example.jpg" alt="Interface" width="360" height="663">
-
 
 <!-- GOALS -->
 ## Goals
