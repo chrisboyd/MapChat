@@ -40,7 +40,7 @@
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
-* [Protoype](#prototype)
+
 * [Abstract](#abstract)
 * [Introduction](#introduction)
   * [MapChat Overview](#mapchat-overview)
@@ -57,6 +57,7 @@
     * [Security](#security)
   * [Package Diagram: MapGroup](#package-diagram-mapgroup)
   * [Use Case: CreateMapGroup](#usecase-create-mapgroup)
+  * [Prototype](#prototype)
   * [Sequence Diagram: CreateMapGroup Use Case](#sequence-diagram-createmapgroup-use-case)
   * [Deployment Diagram](#deployment-diagram)
     * [Deployment Diagram Description](#deployment-diagram-description)
@@ -78,17 +79,6 @@
 * [Conclusions](#conclusions)
 * [References](#references)
 
-## Prototype
-The prototype models the CreateMapGroup use case.
-  * The dashboard will have a list of a few MapGroups which appear as buttons, with their names on each respective button.
-  * Clicking a MapGroup button will take you to that MapGroup, which has a map at those co-ordinates, bounded by the radius of the MapGroup.
-  * Clicking "Create MapGroup" action will take you to a page where you can create a new MapGroup by entering longitude and latitude co-ordinates, a name and radius.
-  * The newly created MapGroup will appear in the dashboard.
-
-Note: Sometimes the service may experience some lag retrieving data from the back-end.
-
-http://masondarcy.github.io/
-
 <!-- Abstract  -->
 ## Abstract
 
@@ -103,7 +93,6 @@ Results: While successful, the implementation did not proceed without overcoming
 <!-- Introduction -->
 
 ## Introduction
-MapChat will be hosted on AWS. Further technologies are still being discussed. Any recommendations will be greatly appreciated and rewarded with a digital pint of beer.
 
 ### MapChat Overview
 Current social networks are based around producing as large and widely-distributed groups as possible. While this approach is useful for remaining in contact with people all over the world and promoting your own social brand, it provides little value in increasing your quality of life on a day-to-day basis. MapChat seeks to promote and maintain a new form of hyper-local groups.
@@ -239,6 +228,17 @@ Create MapGroup Fails
 * Invalid latitude and/or longitude
 Exit Condition
 * User is redirected to the MapGroup activity of the newly created MapGroup
+
+### Prototype
+The prototype models the CreateMapGroup use case.
+  * The dashboard will have a list of a few MapGroups which appear as buttons, with their names on each respective button.
+  * Clicking a MapGroup button will take you to that MapGroup, which has a map at those co-ordinates, bounded by the radius of the MapGroup.
+  * Clicking "Create MapGroup" action will take you to a page where you can create a new MapGroup by entering longitude and latitude co-ordinates, a name and radius.
+  * The newly created MapGroup will appear in the dashboard.
+
+Note: Sometimes the service may experience some lag retrieving data from the back-end.
+
+http://masondarcy.github.io/
 
 ### Sequence Diagram: CreateMapGroup Use Case
 
