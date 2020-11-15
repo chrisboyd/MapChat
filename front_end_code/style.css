@@ -1,0 +1,39 @@
+#map {
+  height: 500px;
+  width: 500px;
+
+}
+
+#functions {
+  height: 100px;
+  width: auto;
+  margin: auto;
+  display: grid;
+  background: LightGray;
+  grid-template-columns: 100px;
+  width:60%;
+  padding: 10px;
+
+}
+
+#container {
+  height: 200px;
+  width: auto;
+  margin: auto;
+  display: grid;
+  background: LightGray;
+  grid-template-columns: 100px;
+  width:60%;
+  padding: 10px;
+  grid-row-gap: 5px;
+
+}
+
+
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MapGroup Prototype</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<!--    <script
+      src="https://maps.googleapis.com/maps/api/js?key=KEYI&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>-->
+
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script src="./mapgroupCreation-js.js"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
+    <script src="https://mutiny.cz/exifr/dist/lite.umd.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!--<form id ="createForm" action="./index.html" method="POST">-->
+
+
+
+  </head>
+  <body style="background-color:grey;">
+    <form id ="createForm"  method="POST">
+    <label for="mgName">MapGroup name</label><br>
+    <input type="text" id="mgName" name="mgName" value=""><br>
+
+    <label for="lat">Latitude:</label><br>
+    <input type="text" id="lat" name="lat" value=""><br>
+
+    <label for="long">Longitude:</label><br>
+    <input type="text" id="long" name="long" value=""><br>
+
+    <label for="range">Range (KM):</label><br>
+    <input type="text" id="range" name="range" value=""><br>
+
+  <!-- <input type="submit" value="Create" onclick="testFunc"/>-->
+  <!--  <input type="submit" value="Create"/> -->
+  </form>
+
+
+
+<button onclick = "createMapGroup()">Create</button>
+
+<p>Example coordinates: lat: 17.983631, long: 273.201746 for Kingston Jamaica</p>
+<p>Or find coordinates with this website https://www.latlong.net/</p>
+<p>Range will bound the map by that distance from the origin.</p>
+
+  </body>
+</html>
