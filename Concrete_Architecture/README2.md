@@ -363,7 +363,7 @@ Message Format
   * Better time management, without a project extension, completion would have been near impossible and the end result would have shown poorly. The team spent close to a week in unstructured research that did not produce any worthwhile results
 * The team walked back on some of the tools that make Agile software development successful, mainly the use of kanban cards, going forward this will be given more attention to better assign tasks and have those tasks clearly defined
 
-## Conclusion
+## Conclusions
 
 * Despite implementation difficulties the team is satisfied with the choice of the microservices architecture. 
   * Spring Boot has turned out to be a wonderful framework that made many things easier than expected
