@@ -121,7 +121,7 @@ Having selected the microservices architecture, this report will detail how the 
 
 ### Conceptual Architecture Diagram
 
-<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/conceptual_architecture_diagram.jpg" alt="conceptual_architecture_diagram">
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/MapChat_Architecture_V0.3.png" alt="conceptual_architecture_diagram">
 
 ### Conceptual Architecture Review
 
@@ -141,7 +141,7 @@ Early in the Architectural Proposal Phase the MapChat team came across the micro
 
 ### Concrete Architecture Diagram
 
-Link image here
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/MapChat_Architecture_Concrete.png" alt="concrete architecture diagram">
 
 ### Concrete Architecture Description
 
@@ -168,7 +168,7 @@ In order to achieve a higher availability (greater than 99%), MapChat will use t
 
 ##### Availability Concrete Scenario
 
-Link image
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/quality_availability_scenario.png" alt="quality availability scenario">
 
 #### Performance
 
@@ -179,7 +179,7 @@ The design tactics Mapchat will use to achieve this is to directly increase reso
 
 ##### Performance Concrete Scenario
 
-Link image
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/quality_performance_scenario.png" alt="quality performance scenario">
 
 #### Modifiability
 
@@ -190,7 +190,7 @@ In order to increase performance, one change might be to merge the MapGroup and 
 
 ##### Modifiability Concrete Scenario
 
-Link image
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/quality_modifiability_scenario.png" alt="quality modifiability scenario">
 
 #### Security
 
@@ -201,11 +201,11 @@ In order to achieve this quality attribute, MapChat can use the design tactic of
 
 ##### Security Concrete Scenario
 
-Link image
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/quality_security_scenario.png" alt="quality security scenario">
 
 ### Package Diagram: MapGroup
 
-link image
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/mapgroup_class_diagram.png" alt="mapgroup class diagram">
 
 ### Use Case: CreateMapGroup
 
@@ -230,15 +230,15 @@ Exit Condition
 
 ### Sequence Diagram: CreateMapGroup Use Case
 
-link image
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/mapgroup_sequence_diagram.png" alt="mapgroup sequence diagram">
 
 ### Component Diagram
 
-link image
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/component_diagram_v2.png" alt="mapgroup class diagram">
 
 ### Deployment Diagram
 
-link image
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Docs/Images/Deployment_Diagram_V0.png" alt="deployment diagram">
 
 ### Deployment Diagram Description
 
