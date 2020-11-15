@@ -41,12 +41,10 @@
 ## Table of Contents
 
 * [Abstract](#abstract)
-  * [Built With](#built-with)
-* [Getting Started](#getting-started)
-  * [Architecture](#architecture)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-  * [Interface](#interface)
+* [Introduction](#introduction)
+  * [MapChat Overview](#mapchat-overview)
+  * [Architecture Review](#architecture-review)
+  * [Report Overview](#report-overview)
 * [Goals](#goals)
 * [Social Benefits](#social-benefits)
 * [Economic Benefits](#economic-benefits)
@@ -64,16 +62,40 @@
 <!-- ABOUT THE PROJECT -->
 ## Abstract
 
-Current social networks are based around producing as large and widely-distributed groups as possible. While this approach is useful for remaining in contact with people all over the world and promoting your own social brand, it provides little value in increasing your quality of life on a day-to-day basis. MapChat seeks to promote and maintain a new form of hyper-local groups.
+Context: MapChat is a hyper-local social network with an exponential user-growth model. During the team’s architecture proposal phase a microservices-based design was selected as the most capable of supporting the rapid growth[1][2] and changing requirements of a successful social-network. In transitioning from the architecture proposal to implementation many components have evolved.
 
-A hyper-local group means focusing on a small geographic area or around a well defined community. MapChat would create/maintain this new form of hyper-local groups by allowing the users to create a new community or join an existing one. The creation of a community is based on a geographical location. A community can be open for all or have restricted access, depending on the creator’s desires. Every group on the map can create their own flag. A prolific group’s flag can be a marker for adventure, thereby leading other groups to explore a new community or attraction. Each flag is linked with a picture and brief description of the area written by the group. MapChat will also have a messaging system so the users can communicate and build a vibrant community. Ultimately, the purpose of MapChat is to encourage our users to seek other adventurers in their neighbourhood.
+Objective: Our intention was to design an architecture that provides the structure to implement a small number of initial use cases while also supporting rapid development to meet all use cases. Success will prove the validity of a microservices architecture by leveraging existing systems wherever possible to promote continuous deployment and easy expansion of MapChat. 
+
+Implementation Methodology: We wanted to start with a familiar technology in Java. Spring Boot provided an ideal framework for developing Java code into a web application. This code could then be encapsulated within a set of Docker images for deployment on Amazon Web Services (AWS).  
+
+Results: While successful, the implementation did not proceed without overcoming some deficiencies in the pre-implementation planning. Initially the implementation was carried out on a local system making use of Netflix’s Eureka for client discovery and a Zuul API Gateway[3]. Unfortunately, the transition to AWS was not compatible with our implementation of Eureka and Zuul. Despite much effort we were unable to succeed in transitioning from local to the cloud. At this point the team was able to leverage the modular nature of the base Java / Spring Boot microservices contained within Docker images. This modularity allowed the removal of Eureka and Zuul for AWS-native solutions. In particular, we were able to employ AWS’s Elastic Container Service and Elastic Load Balancing with Target Groups to deploy our microservices[4] with minimal changes to the initial code base. 
 
 
-
-### Built With
+## Introduction
 MapChat will be hosted on AWS. Further technologies are still being discussed. Any recommendations will be greatly appreciated and rewarded with a digital pint of beer.
 
+### MapChat Overview
+Current social networks are based around producing as large and widely-distributed groups as possible. While this approach is useful for remaining in contact with people all over the world and promoting your own social brand, it provides little value in increasing your quality of life on a day-to-day basis. MapChat seeks to promote and maintain a new form of hyper-local groups.
 
+A hyper-local group means focusing on a small geographic area. MapChat would create/maintain this new form of hyper-local groups by allowing the users to create a new community or join an existing one. The creation of a community is based on a geographical location. A community can be open for all or have restricted access, depending on the creator’s desires. Every group on the map can create their own flag. A prolific group’s flag can be a marker for adventure, thereby leading other groups to explore a new community or attraction. Each flag is linked with a picture and brief description of the area written by the group. MapChat will also have a messaging system so the users can communicate and build a vibrant community. Ultimately, the purpose of MapChat is to encourage our users to seek other adventurers in their neighbourhood.
+
+
+### Architecture Review
+During the Architectural Proposal Phase, the MapChat team reviewed multiple potential architectural patterns for the implementation of our hyper-local social network. Including, but not limited to: Model-View-Controller, Monolithic, n-tier and microservices. It was determined that the modular nature of microservices best fit our requirement for a dynamic system that could be quickly scaled in both concurrent users and scope of implementation[5]. We feel this decision will be further validated when additional features are requested. Our microservices architecture will be adaptable and expandable with minimal changes to existing, tested and deployed systems.
+
+### Report Overview
+
+Having selected the microservices architecture, this report will detail how the architecture has evolved from the proposal to the current implementation. This evolution and implementation will be examined through several sets of diagrams and models of analysis.
+From concept to implementation: an analysis of what architectural changes were required for the implementation. The primary differences being the removal of a distinct API Gateway and the event bus for inter-service communication.
+Detailed description of the high level architecture: including the communication and technologies leveraged for each component.
+Quality attributes: identify what MapChats non-functional requirements are and how they affected our architectural evolution and implementation
+Package diagram: detailed UML-diagram for the MapGroup service, being the core microservice of the implemented use case.
+Use case: showing the process of a logged in User creating a MapGroup by providing a name, location and range (distance from location) for the group.
+Sequence diagram: showing the complete interaction of components for the use case of creating a new MapGroup.
+Component diagram: describes the interfaces provided by each service and which services interact with one another.
+Deployment diagram: outlines the AWS technologies used to enable continuous deployment and allow for rapid scaling to meet a growing user base.
+Interfaces: detailed overview of each components interface including communication protocols and messages.
+To close out the report we will summarize the results and cover some key lessons learned during the concrete architecture and prototype phase.
 
 <!-- GETTING STARTED -->
 ## Getting Started
