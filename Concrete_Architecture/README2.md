@@ -283,6 +283,98 @@ Message Format
   * Response: Status 200, OK
 * SSL for Database Connection: Managed through the Spring Data JPA interface, further details at [7].
 
+### MapGroup Microservice
+
+Protocols Used
+* HTTP, SSL (for database connection)
+
+Message Format
+* GET
+  * Input: JSON
+    * {“id”:28}
+  * Response: JSON, where members is a list of member id’s and map is the mapId
+    * Note: MapGroup media is not currently implemented, once it is a link to the media attached to the MapGroup will be included in the responses
+    * { "createdAt": "2020-11-12T22:48:30.955+00:00", "updatedAt": "2020-11-12T22:48:30.955+00:00", "id": 28,  "name": "Pyongyang", "members": "1,2", "map": 37} 
+* POST
+  * Input: JSON
+    * {  "name": "Gondolin", "mapId": 33, "members": "1,2"}
+  * Response: JSON, id’s are automatically generated
+    * { "createdAt": "2020-11-12T22:48:30.955+00:00", "updatedAt": "2020-11-12T22:48:30.955+00:00", "id": 30,  "name": "Gondolin", "members": "1,2", "map": 33}
+* PUT
+  * Input: JSON, existing id will update the group information, non-existing id will create a new MapGroup with the provided information
+    * { “id”:30, "name": "Gondolin", "mapId": 33, "members": "1,2,3,4"}
+  * Response: JSON
+    * { "createdAt": "2020-11-12T22:48:30.955+00:00", "updatedAt": "2020-11-12T22:48:30.955+00:00", "id": 30,  "name": "Gondolin", "members": "1,2,3,4", "map": 33}
+* DELETE
+  * Input: JSON
+    * {“id”:30}
+  * Response: Status 200, OK
+* SSL for Database Connection: Managed through the Spring Data JPA interface, further details at [7].
+
+### Map Microservice
+
+Protocols used
+  * HTTP, SSL (for database connection)
+Message Format
+* GET
+  * Input: JSON
+    * {"id":37}
+  * Response: JSON
+    *  {"id": 37, "longitude": 125.73303223, "latitude": 39.02291795, "range": 10 }
+* POST
+  * Input: JSON
+    * { "longitude": 145, "latitude": 45, "range": 101}
+  * Response: JSON, id’s are automatically generated
+    * { "id": 43, "longitude": 145.0, "latitude": 45.0, "range": 101 }
+* PUT
+  * Input: JSON, existing id will update the map information, non-existing id will create a new Map with the provided information
+    * { "id": 43, "longitude": 145.0, "latitude": 45.0, "range": 55 }
+  * { "id": 43, "longitude": 145.0, "latitude": 45.0, "range": 55 }
+* DELETE
+  * Input: JSON
+    * {“id”:30}
+  * Response: Status 200, OK
+* SSL for Database Connection: Managed through the Spring Data JPA interface, further details at [7].
+
+## Lessons Learned
+
+* Further investigation of technologies needed during proposal phase
+  * Spent many hours figuring out basics of implementation, various techniques for service discovery, service interaction, 
+* Research deployment before beginning implementation
+  * Back-end: couldn’t figure out how to use Netflix’s Eureka and Zuul within AWS, should have started with AWS-native solutions would have saved a huge amount of time and effort
+     * Positive was deployment issues highlighted positives of microservice architecture and Spring Boot Framework: transition from Eureka/Zuul to AWS-native required removing 2 lines of code from each microservice and 1 line from a configuration file
+     * Problems with deployment were very hard to troubleshoot, and this comes into a problem with microservices of isolating faults. In the initial transition from local development to deployed on AWS the process started well. We were able to get the services in Docker containers and the ECS and ECR systems configured on AWS. The Eureka server even ran and was reachable from the instances URL. However, none of the other services were able to connect with the eureka server or Zul gateway. They would load and run, but consistently fail to connect to any other resources. The only source of information to attempt to track down a solution was the java exception being thrown and the hope that others had the same issue. Neither of which produced a solution that worked for us. 
+  * Front-end: ran out of time to succeed in deploying initial prototype to AWS, which also highlighted another issue learned, communication and lack of awareness for concurrent work 
+     * Team was not clear on requirements for front end and there was a disconnect from front and back-end development leading to a duplication of work on the front end (creating databases) for components that were in the back-end domain
+  * When researching implementation tutorials give strong preference to newer tutorials, was many hours into a seemingly perfect Microservices with Spring Boot Tutorial [3] that addressed all of the basics
+    * Code was several versions behind and determining how to adapt to current versions was not clear, team was fortunate that a fork of tutorial code was created by a third party which addressed shortcomings in the tutorial
+  * Better time management, without a project extension, completion would have been near impossible and the end result would have shown poorly. The team spent close to a week in unstructured research that did not produce any worthwhile results
+* The team walked back on some of the tools that make Agile software development successful, mainly the use of kanban cards, going forward this will be given more attention to better assign tasks and have those tasks clearly defined
+
+## Conclusion
+
+* Despite implementation difficulties the team is satisfied with the choice of the microservices architecture. 
+  * Spring Boot has turned out to be a wonderful framework that made many things easier than expected
+    * Mapping get/post/put/delete REST API calls is straightforward, many annotations that limit amount of code written[10]
+  * Research shows that microservice-style architecture is the way web development is progressing so getting some experience with the style will provide the team members a lot of insight to bring to future projects[11]
+
+## References
+    
+[1]M. Hall, "Facebook | Overview, History, & Facts", Encyclopedia Britannica, 2020. [Online]. Available: https://www.britannica.com/topic/Facebook. [Accessed: 13- Nov- 2020].
+[2] A. Balalaie, A. Heydarnoori, P. Jamshidi, Microservices Migration Patterns, Technical Report No. 1, TRSUT-CE-ASE-2015-01, Automated Software Engineering Group, Sharif University of Technology, October, 2015 [Available Online at http://ase.ce.sharif.edu/pubs/techreports/TR-SUT-CE-ASE-2015-01-Microservices.pdf]
+[3] O. Elgabry, "Microservices with Spring Boot — Intro to Microservices (Part 1)", Medium, 2020. [Online]. Available: https://medium.com/omarelgabrys-blog/microservices-with-spring-boot-intro-to-microservices-part-1-c0d24cd422c3. [Accessed: 13- Nov- 2020].
+[4]"How to Break a Monolith Application into Microservices with Amazon Elastic Container Service, Docker, and Amazon EC2 | AWS", Amazon Web Services, Inc., 2020. [Online]. Available: https://aws.amazon.com/getting-started/hands-on/break-monolith-app-microservices-ecs-docker-ec2/ [Accessed: 13- Nov- 2020].
+[5] A. Balalaie, A. Heydarnoori and P. Jamshidi, "Microservices Architecture Enables DevOps: Migration to a Cloud-Native Architecture," in IEEE Software, vol. 33, no. 3, pp. 42-52, May-June 2016, doi: 10.1109/MS.2016.64. [Online] Available: https://ieeexplore.ieee.org/document/7436659
+[Accessed: 13- Nov- 2020].
+[6] "Spring Framework", Spring.io, 2020. [Online]. Available: https://spring.io/projects/spring-framework. [Accessed: 13- Nov- 2020].
+[7]"2. JPA Repositories", Docs.spring.io, 2020. [Online]. Available: https://docs.spring.io/spring-data/jpa/docs/1.5.0.RELEASE/reference/html/jpa.repositories.html. [Accessed: 13- Nov- 2020].
+[8]M. Yap, "Scaling Your Amazon RDS Instance Vertically and Horizontally | Amazon Web Services", Amazon Web Services, 2020. [Online]. Available: https://aws.amazon.com/blogs/database/scaling-your-amazon-rds-instance-vertically-and-horizontally/. [Accessed: 13- Nov- 2020].
+[9]G. Parimi, "Securing Spring Boot Microservices with JSON Web Tokens (JWT) - DZone Microservices", dzone.com, 2020. [Online]. Available: https://dzone.com/articles/securing-spring-boot-microservices-with-json-web-t. [Accessed: 13- Nov- 2020].
+[10]"Spring Boot Reference Guide", Docs.spring.io, 2020. [Online]. Available: https://docs.spring.io/spring-boot/docs/2.0.9.RELEASE/reference/html/. [Accessed: 15- Nov- 2020].
+[11]P. Francesco, I. Malavolta and P. Lago, "Research on Architecting Microservices: Trends, Focus, and Potential for Industrial Adoption", 2017 IEEE International Conference on Software Architecture (ICSA), 2017. Available: https://ieeexplore.ieee.org/abstract/document/7930195. [Accessed 15 November 2020].
+
+
+
 <!-- CONTACT -->
 ## Contact
 ### FiveGuys Software 
@@ -293,6 +385,7 @@ Message Format
 * Raza Memon - raza9999ali@gmail.com
 
 Project Link: [https://github.com/chrisboyd/MapChat](https://github.com/chrisboyd/MapChat)
+
 
 
 
