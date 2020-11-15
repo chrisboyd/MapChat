@@ -61,8 +61,8 @@
 
 
 
-<!-- ABOUT THE PROJECT -->
-## About The Project
+<!-- ABOUT THE POJECT -->
+## About The Projec
 
 Current social networks are based around producing as large and widely-distributed groups as possible. While this approach is useful for remaining in contact with people all over the world and promoting your own social brand, it provides little value in increasing your quality of life on a day-to-day basis. MapChat seeks to promote and maintain a new form of hyper-local groups.
 
