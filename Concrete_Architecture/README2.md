@@ -40,7 +40,7 @@
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
-* [About the Project](#about-the-project)
+* [Abstract](#abstract)
   * [Built With](#built-with)
 * [Getting Started](#getting-started)
   * [Architecture](#architecture)
@@ -62,7 +62,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Projec
+## Abstract
 
 Current social networks are based around producing as large and widely-distributed groups as possible. While this approach is useful for remaining in contact with people all over the world and promoting your own social brand, it provides little value in increasing your quality of life on a day-to-day basis. MapChat seeks to promote and maintain a new form of hyper-local groups.
 
