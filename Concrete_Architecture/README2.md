@@ -160,94 +160,128 @@ Link image here
 * Map Microservice: responsible for interacting with the Google Maps API to retrieve a map for at a given latitude and longitude with a range, in meters, from said point.
   * Early prototypes will store/use a static copy of the map stored within the database while future versions will use a dynamic version capable of seeing public flags posted near the user’s current location.
 
-<!-- ECONOMIC BENEFITS -->
-## Economic Benefits
+### Architecture Quality Attributes
 
-Aside from the secondary economic benefit of promoting individuals to socialize, MapChat’s long term goal is to develop a partnership model with local businesses. Using this framework, businesses would be able to offer short term deals to any active local MapChat groups. By using these partnerships MapChat will not have to rely on general ad placements that negatively affect the user experience. This is a business advantage that does not exist with other applications. Additionally, MapChat has a wide target audience with very little restrictions. It will include anyone who wants to connect with other adventurous locals and get to know an area and all of its hidden secrets. 
+#### Availability
 
-<!--VALUE BEYOND EXISTING PLATFORMS -->
-## Value Beyond Existing Platforms
+In order to achieve a higher availability (greater than 99%), MapChat will use the retry design tactic and redundancy. For example, If a POST REST request to the MapGroup service fails to get a response, the rest request will be automatically retried. If the retry fails, the load-balancer will send the request to a redundant copy of the MapGroup service.
 
-Many of MapChat’s features exist across other platforms. MapChat bundles a unique set of them. For example, Facebook Messenger allows users to add friends, share media, and create groups. Google My Maps allows users to associate media with map-flags and share them. These are all features planned for MapChat. 
+##### Availability Concrete Scenario
 
-Where other social networking platforms attempt to implement everything, MapChat aims to implement only what is necessary to promote social interaction. Similar apps have a lot of features, for example, Facebook’s wall, timeline, inbox, and video calls. By paring these features down, the service will be much more accessible to users.
+Link image
 
-Due to the geographical constraints of the app, users are required to interact with the people in their immediate environment which enables easily accessible, in-person connections. The service becomes a game, allowing users to create and build up an area with friends, new or old. 
+#### Performance
 
-One new feature MapChat introduces is the idea of hidden map-flags, where the media must be unlocked by visiting the location. These hidden-flags could be time-sensitive and consumable (disappear upon discovery). Another idea would be to make the flags themselves hidden, and push a notification to the user when they happened upon them near the physical location. 
+The response time of our services is important to the end-users. For example, in the PostMedia use case when a user posts an image to the map, it should have a response time (update the image on the map) of less than 5 seconds 90% of the time.
 
-<!-- USER STORY -->
-## User Story
-
-* Story Name: Join an existing MapChat Social Group
-* Description: User wants to find an existing Social Group so they can make new friends
-* Conversation:
-  * What is User’s activity goal with their new friends?
-  * When does User want to perform said activity?
-  * What are User’s requirements for a new Social Group?
-    * Selections for: age, distance, gender, interests
-  * How long does User want to be a part of their new Social Group?
-* Confirmation:
-  * As a user can I find local Social Groups?
-  * As a user can I join local Social Groups?
-  * As a user can I interact with other members of the local Social Group?
-  * As a user can I leave a local Social Group?
-  
-<!-- PRIORITIES -->
-## Priorities
-**Priority 1**
-1. Users can sign up for an account through an account creation process. 
-1. Users can login through a login process.
-1. Users can create a map-group by selecting a location.
-1. Users can invite other users to join their own map-group. 
-1. Users can upload a photo or video to a map-group (through mobile app), where it will appear as a flag for other users to interact with. Media has the coordinate meta data.
-1. Users can select a flag in a map-group (mouse-click, touchscreen press), that will launch the picture or video for viewing.
-1. Users can jump between different map-groups through a GUI.
-
-**Priority 2**
-1. Users with sufficient privileges can remove other users from a map group. 
-1. A map-group interface will have a chat box.
-1. A user can choose to make the content of their flag hidden, requiring another user to visit the location in order to access the content.
-1. A user can create a chain of flags meant to be visited in sequence, where each node unlocks the next successive node.
-1. Administrator users (those who created a map-group) can delegate group-member privileges: invitation, removal, chat-enabled, chat-muted.
-1. User can choose to display only certain layers of flags. e.g: choose to only see one other user’s flags).
-1. Implementation and of hidden, time-sensitive map flags.
-
-**Priority 3**
-1. Implement recommendation system for discovering new groups.
-1. Enable businesses to sponsor pop-up events for groups
-
-<!-- CHALLENGES -->
-## Challenges
-1. Differentiating from other services: this is very similar to Google My Maps
-   1. Come up with some way to incentivize people going outside
-   1. Strip down the features of My Maps to make it simpler to use
-1. Map generation: This can be a blackbox in the prototype, Google Maps integration may be needed.
-   1. Basic Custom map generation: scrape google maps or another service, take a static snapshot from the map
-   1. Third party software or service: connect it to the system as a component
-   1. Develop more advanced map generation
-1. High volume of users
+The design tactics Mapchat will use to achieve this is to directly increase resource capacity on the cloud. Additionally, using a load balancer, MapChat can maintain multiple computational copies.
 
 
-<!-- CONTRIBUTING -->
-## Contributing
+##### Performance Concrete Scenario
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Link image
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+#### Modifiability
 
+By using independent microservices, MapChat is highly modular. With a much more granular set of components, the system can run into issues with complexity if many components are added and suffer performance issues from inter-service communication. 
+
+In order to increase performance, one change might be to merge the MapGroup and Map service components. To reduce the development time of this kind of change, the design tactic of deferring bindings can be employed. Services will be bound at runtime by using name servers, to reduce the complexity of modifying the system.
 
 
-<!-- LICENSE -->
-## License
+##### Modifiability Concrete Scenario
 
-Distributed under the AGPL-3.0 License. See `LICENSE` for more information.
+Link image
+
+#### Security
+
+MapChat will be saving media that many users may deem private, and the collection of images they have posted in their MapGroup may also expose details about their habits and other relationships. Thus, keeping this data private from attackers is a high priority and quality attribute of MapChat. 
+
+In order to achieve this quality attribute, MapChat can use the design tactic of verifying message integrity and authorization -- rejecting unauthorized attempts to access the MapGroup service. Additionally, creating logs of unauthorized access attempts will help to identify attackers and block their IP addresses (revoke access).
 
 
+##### Security Concrete Scenario
+
+Link image
+
+### Package Diagram: MapGroup
+
+link image
+
+### Use Case: CreateMapGroup
+
+Participating Actors
+* End-user
+Entry Condition
+* User is logged on
+* User has access to primary dashboard
+Normal Flow of Events
+* User navigates to the Create MapGroup activity
+* System prompts User for a MapGroup name
+* User selects a name for the new MapGroup
+* System prompts End-user for an origin latitude and longitude
+User selects origin latitude and longitude
+* System prompts user for a range parameter
+* User submits information
+Exceptions
+Create MapGroup Fails 
+* Invalid latitude and/or longitude
+Exit Condition
+* User is redirected to the MapGroup activity of the newly created MapGroup
+
+### Sequence Diagram: CreateMapGroup Use Case
+
+link image
+
+### Component Diagram
+
+link image
+
+### Deployment Diagram
+
+link image
+
+### Deployment Diagram Description
+
+In hindsight, the failure of deploying the locally-developed implementation will be a positive in the long run. Now the deployment relies on proven systems in Amazon’s Elastic Container Registry, Elastic Container Service, Elastic Compute Cloud, Relational Database ServiceLoad Balancer and Target Groups which are all designed to work together seamlessly. With minimal effort and no code changes we are able to vertically scale our deployment by allocating more powerful EC2 instances and horizontally scale by adding more EC2 instances to the pool.
+Going forward the MapChat team will be able to make strong use of these existing platforms and DevOps strategies to continuously build and deploy updates through the GitHub, Docker Hub Amazon ECR and ECS deployed on scalable EC2 instances pipeline.
+
+### Alternative Deployment's Considered
+
+Upon the initial deployment troubles the team had a back-up plan of enabling the system to run on a team members local system and allocating a static IP address from their network provider. This was considered a last ditch option, but it was considered. Fortunately we did not have to cross this path in the end.
+
+## Interfaces
+
+### Client Website
+
+Protocols Used
+* HTTP
+Message Format
+* REST: GET, POST, PUT and DELETE with JSON to each of User, MapGroup and Map microservices (details for each outlined below)
+
+### User Microservice
+
+Protocols Used
+* HTTP, SSL (for database connection)
+Message Format
+* GET
+  * Input: JSON
+    *{"id": 1}
+  * Response: JSON
+* POST
+  * Input: JSON
+    * { "firstName": "Fingolfin", "lastName": "High King of the Noldor", "email": "valiant@gmail.com", "phoneNumber": "121-589-1453"}
+  * Response: JSON, id’s are automatically generated
+    * { “id”: 5, "firstName": "Fingolfin", "lastName": "High King of the Noldor", "email": "valiant@gmail.com", "phoneNumber": "121-589-1453"}
+* PUT
+  * Input: JSON, existing id will update their information, non-existing id will create a new User with the provided information
+    * { “id”: 5, "firstName": "Fingolfin", "lastName": "High King of the Noldor", "email": "valiant@gmail.com", "phoneNumber": "358-589-1453"}
+  * Response: JSON
+    * { “id”: 5, "firstName": "Fingolfin", "lastName": "High King of the Noldor", "email": "valiant@gmail.com", "phoneNumber": "358-589-1453"}
+* DELETE
+  * Input: JSON
+    * {“id”:5}
+  * Response: Status 200, OK
+* SSL for Database Connection: Managed through the Spring Data JPA interface, further details at [7].
 
 <!-- CONTACT -->
 ## Contact
