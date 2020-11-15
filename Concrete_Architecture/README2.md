@@ -62,21 +62,21 @@
     * [Alternative Deployments Considered](#alternative-deployments-considered)
 * [Interfaces](#interfaces)
   * [Client Website](#client-website)
-    * [Protocols Used](#protocols-used)
-    * [Message Format](#message-format)
+    * [Protocols Used](#protocols-used1)
+    * [Message Format](#message-format1)
   * [User Microservice](#user-microservice)
-    * [Protocols Used](#protocols-used)
-    * [Message Format](#message-format)
+    * [Protocols Used](#protocols-used2)
+    * [Message Format](#message-format2)
   * [MapGroup Microservice](#mapgroup-microservice)
-    * [Protocols Used](#protocols-used)
-    * [Message Format](#message-format)
+    * [Protocols Used](#protocols-used3)
+    * [Message Format](#message-format3)
   * [Map Microservice](#map-microservice)
-    * [Protocols Used](#protocols-used)
-    * [Message Format](#message-format)
+    * [Protocols Used](#protocols-used4)
+    * [Message Format](#message-format4)
 * [Lessons Learned](#lessons-learned)
 * [Conclusions](#conclusions)
 * [References](#references)
-d
+
 <!-- Abstract  -->
 ## Abstract
 
