@@ -105,7 +105,7 @@ During the Architectural Proposal Phase, the MapChat team reviewed multiple pote
 ### Report Overview
 
 Having selected the microservices architecture, this report will detail how the architecture has evolved from the proposal to the current implementation. This evolution and implementation will be examined through several sets of diagrams and models of analysis.
-* From concept to implementation: an analysis of what architectural changes were required for the implementation. The primary differences being the removal of a distinct API * * Gateway and the event bus for inter-service communication.
+* From concept to implementation: an analysis of what architectural changes were required for the implementation. The primary differences being the removal of a distinct API Gateway and the event bus for inter-service communication.
 * Detailed description of the high level architecture: including the communication and technologies leveraged for each component.
 * Quality attributes: identify what MapChats non-functional requirements are and how they affected our architectural evolution and implementation
 * Package diagram: detailed UML-diagram for the MapGroup service, being the core microservice of the implemented use case.
@@ -116,23 +116,49 @@ Having selected the microservices architecture, this report will detail how the 
 * Interfaces: detailed overview of each components interface including communication protocols and messages.
 * To close out the report we will summarize the results and cover some key lessons learned during the concrete architecture and prototype phase.
 
-<!-- GOALS -->
-## Goals
+<!-- Architecture -->
+## Architecture
 
-* Creation and deletion of user accounts
-* Creation and removal of hyper-local groups
-* Discovery of nearby groups
-* Post location-related media to group members
-* Interaction of group members
+### Conceptual Architecture Diagram
 
-The overall goal of MapChat is to help individuals build a group based on venturing out in the world. 
-This group is maintained with our messaging system. Other groups can be discovered by viewing public flags in your area. Users can either use MapChat to find existing groups in an area or create a new group to invite others to join. MapChat places a strong emphasis on privacy and no data will be shared with third parties.
+Link the image here
 
+### Conceptual Architecture Review
 
-<!-- SOCIAL BENEFITS -->
-## Social Benefits
+Early in the Architectural Proposal Phase the MapChat team came across the microservices pattern and, from the start, it felt right conceptually. The thought of continuously deploying small services that could be self-contained and deployed in the cloud quickly became the most viable option in our minds. In hindsight, our opinion on this has not changed. Our failing during the proposal phase was in leaving the design too far on the conceptual side. More research investigating available technologies for implementation and deployment would have saved a great deal of effort. As such, there were several changes made to the conceptual architecture during the implementation phase:
 
-Anyone that has travelled alone or moved to a new city or neighbourhood has felt the frustration of trying to connect with new people in their area. MapChat will give users the ability to quickly create a new social network on the fly, wherever they may be in the world. With local users placing descriptive flags in communities, tourists will be able to rely on verified locals for travel destinations and tips. Finally, MapChat is focused on connecting people to build a strong sense of community centered around shared adventures.
+* Removal of distinct API Gateway: using AWS Target Groups allows for routing of REST API calls and load balancing amongst active instances of microservices without the need for an additional layer to manage, such as the proposed API Gateway.
+ 
+* Removal of Event Bus: during implementation we discovered that our microservices had minimal interaction that eliminated the need for an additional layer of complexity and development incurred by including the event bus. Instead the services use the same REST API interface provided to the client.
+
+* Removal of separate Authentication Server: a secondary service for authentication was deemed irrelevant and the authentication will be incorporated into the User microservice.
+
+* Incorporate Messaging Service into Group Service (and rename MapGroup): it was determined that these two services were too tightly coupled to justify having separate services.
+
+* Incorporate Friend Service into User Service: as with messaging and groups, implementation quickly showed that these services were not unique enough to warrant separation.
+
+* Removal of Services: the number of services was greatly reduced to what was necessary for the early stages of prototyping for MapChat.
+
+### Concrete Architecture Diagram
+
+Link image here
+
+### Concrete Architecture Description
+
+* Mobile Client: Static website hosted on GitHub Pages to demonstrate the implemented Use Case of creating and viewing a MapGroup.
+* AWS Application Load Balancer and Target Groups: Together these replace the API Gateway of the proposed architecture.
+  * Load Balancer routes traffic to the desired microservice based on the URL path of the client’s HTTP request as defined in the Target Groups. This will allow the team to enable new features via new microservices with a small update to the client side code and the creation of a new Target Group.
+* User / MapGroup / Map Microservices: Each microservice uses the 3-tier architecture internally and is developed using Java and the Spring Boot Framework (see Class Diagram) [6]. 
+* Each service provides a REST API and implements GET/POST/PUT/DELETE using JSON for data exchange (see External Interfaces for details).	
+* Each service has a dedicated mySQL database and communicates through Spring’s Data JPA Interface over SSL [7] (see External Interfaces for details).
+  * The databases will not be capable of read/write horizontal scaling in tandem with the attached microservice. However, by taking advantage of AWS’s vertical and read-only horizontal scaling we felt it was a reasonable trade off for implementation efficiency [8].
+* Each microservice is deployed within their own Docker container using AWS Elastic Container Registry running on AWS Elastic Container Service (see Deployment Diagram for details).
+* User Microservice: responsible for creating, updating user information and authentication of users with by means of  JSON Web Tokens[9].
+* MapGroup Microservice: responsible for organization of the MapGroups, which consists of: a unique mapId, a set of users in the group, the messages sent between said users via a chat window communal to the whole group and image posted to the MapGroup.
+  * MapGroup has two databases due to the incorporation of the Messaging Service from the Conceptual Architecture.	
+  * MapGroup uses the same REST API to interact with both User and Map.
+* Map Microservice: responsible for interacting with the Google Maps API to retrieve a map for at a given latitude and longitude with a range, in meters, from said point.
+  * Early prototypes will store/use a static copy of the map stored within the database while future versions will use a dynamic version capable of seeing public flags posted near the user’s current location.
 
 <!-- ECONOMIC BENEFITS -->
 ## Economic Benefits
