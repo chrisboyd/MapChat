@@ -365,10 +365,8 @@ Message Format
 
 ## Conclusions
 
-* Despite implementation difficulties the team is satisfied with the choice of the microservices architecture. 
-  * Spring Boot has turned out to be a wonderful framework that made many things easier than expected
-    * Mapping get/post/put/delete REST API calls is straightforward, many annotations that limit amount of code written[10]
-  * Research shows that microservice-style architecture is the way web development is progressing so getting some experience with the style will provide the team members a lot of insight to bring to future projects[11]
+Throughout the process of creating the application we came across several difficulties that were mostly related to us being new to working with some of the frameworks that we used. However, when properly understood and applied they made creating and working on this project easier. For example, Spring Boot created an easy environment to make REST API calls for GET, POST, PUT and DELETE commands since there are many annotations available that reduce the amount of code to write [10]. Furthermore, when comparing to other big companies and their application it is easy to see that the microservice-style architecture shares many advocates. It is the go to way to develop web applications and its usage is only increasing. Therefore, using and experimenting this software is a valuable lesson for all group members since it can help them develop future projects [11].
+
 
 ## References
     
