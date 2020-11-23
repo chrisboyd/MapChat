@@ -58,6 +58,7 @@
   * [Package Diagram: MapGroup](#package-diagram-mapgroup)
   * [Use Case: CreateMapGroup](#usecase-create-mapgroup)
   * [Prototype](#prototype)
+  * [Code](#code)
   * [Sequence Diagram: CreateMapGroup Use Case](#sequence-diagram-createmapgroup-use-case)
   * [Deployment Diagram](#deployment-diagram)
     * [Deployment Diagram Description](#deployment-diagram-description)
@@ -239,6 +240,17 @@ The prototype models the CreateMapGroup use case.
 Note: Sometimes the service may experience some lag retrieving data from the back-end.
 
 http://masondarcy.github.io/
+
+### Code
+Our code has multiple versions contained within two primary branches
+
+#### Local Version
+Initial implementation that made use of Netflix's Eureka and Zuul for client discovery and gateway services, respectively:
+[https://github.com/chrisboyd/mapchat-microservices](https://github.com/chrisboyd/mapchat-microservices)
+
+#### Amazon Web Services Deployment
+Deployed version that is linked to Docker Repositories and auto-deployed to AWS EC2 instances making use of Amazon Application Load Balancer and Target groups in place of the Eureka and Zuul services: 
+[https://github.com/chrisboyd/mapchat-microservices/tree/aws](https://github.com/chrisboyd/mapchat-microservices/tree/aws)
 
 ### Sequence Diagram: CreateMapGroup Use Case
 
