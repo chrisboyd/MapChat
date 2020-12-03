@@ -52,8 +52,6 @@
   * [Alternative Architecture Review](#alternative-loop-architecture-review)
   * [MapChat IP Throttling System](#mapchat-ip-throttling-system)
   * [Effects of MapChat IP Throttling System on Existing Architecture](#effects-of-mapchat-ip-throttling-system-on-existing-architecture)
-  * [Prototype](#prototype)
-  * [Code](#code)
   * [Enhancement Effects](#enhancement-effects)    
   * [Use Cases](#use-cases)
   * [Sequence Diagrams](#sequence-diagrams)
@@ -61,6 +59,8 @@
 * [Interfaces](#interfaces) 
 * [Lessons Learned](#lessons-learned)
 * [Conclusions](#conclusions)
+* [Throttling Prototype](#throttle-prototype)
+* [Code](#code)
 * [References](#references)
 
 <!-- Abstract  -->
@@ -139,34 +139,158 @@ A major issue with the chosen architecture is keeping each participating service
 ### MapChat IP Throttling System
 <img src="https://github.com/chrisboyd/MapChat/blob/master/Enhancement/images/Logging_System.png" alt="logging_system">
 
+### Effects of MapChat IP Throttling System on Existing Architecture
+
+Our initial choice of going with the microservice architecture has once again been ratified by our ability to add in multiple components to enable an IP throttling system with little change to existing components. 
+
+At a low level we added a large amount of code to write the log entries after each state change to track what the system is doing. This side of the logging system did not require any structural changes or additions other than singular lines of code that wrote to the log files. 
+
+Looking at a higher level we added another database for a centralized log location and a service to read from said database. This sequence handled the analysis component of the self-healing loop. For the blocking of IP addresses added to the BanList we used RabbitMQ to deliver the updated BanList to each microservice. This, in turn, required some low level modifications to our code base but it was very minimal.    
+
+### Enhancement Effects on Maintainability, Testability, Evolvability, Performance, Privacy and Security
+
+Maintainability
+Implementing the proposed enhancement will have a moderate effect on the overall maintainability of the MapChat service. The following will give a brief overview of the effects with respect to corrective maintenance. 
+
+Corrective Maintenance
+Corrective maintenance concerns rectifying errors or faults in the program code in order to ensure its fulfilling its functional requirement. Any modifications here will be initiated by recognizing a failure due to the enhancement implementations. 
+
+Errors or issues could arise in several places, including the new ThrottleManager which reads and analyzes log data and publishes banlists, the relational database for log storage, the node-level service daemon which collects log data from shared pod storage, and the standard output logging at the MapChat microservice level. Additionally, faults or errors could occur at the microservice application level with respect to successfully subscribing to the IP ban list published by the ThottleManager component. 
+
+The complexity and responsibilities of the new components are low. For example, the analysis of the ThrottleManager simply measures frequency of particular IP addresses over a short period. No complex analysis takes place. Logging data is also elementary, including a timestamp and IP address. Therefore, faults should be straightforward to detect and correct. 
+
+Testability
+In terms of testability, the enhancements do not present or introduce any components that will significantly frustrate testing. For example, the loop itself can be tested by running a quick succession of requests from a simulated client, say one-hundred requests in a period of five seconds. The system will detect the high frequency by analyzing the logs, then update the banlist subscribed to by the MapChat microservices. 
+When testing different individual components of MapChat (for example the MapGroup service), the logging and analytical components may interfere. For example, if there was a stress-test designed to see how the service performs under high demand, it would be necessary to either turn off the ThrottleManager if the high load was being simulated by a small number of IP addresses. 
+
+
+Evolvability 
+Evolvability is similar to adaptive maintenance, which refers to maintenance that could arise from mutating current requirements of MapChat, or from new requirements altogether. For example, a new requirement may prompt the need to log additional information, include that information in the analysis, and add additional mitigation strategies. This requirement alteration would require changes in several components, including the local logging statements in the application services themselves, the node-level service daemon, and the relational database schema which stores the logs gathered by the service daemon. Depending on the change to the mitigation strategy, there may need to be an additional component created, or it could be folded into the existing singleton ThrottleManager component.
+
+In the event that new services at the application level of MapChat are added, depending on their nature they may need to have logging functionality implemented to become part of the enhancement loop. Additionally, they would have to subscribe to the ThrottleManager to keep their IP ban-list updated.
+
+Performance 
+The enhancement brings a cost to certain requests made on the system, for example POST requests to create a mapgroup. At the application level, each MapChat service involved will be required to keep an updated ban-list of IPs that they periodically update by subscribing to the ThrottleManager component. These updates will need to be very frequent, in order to quickly throttle any IP that is spamming requests. Additionally, involved services will be required to cross-check requests against the banlist before servicing them. Successfully serviced requests will also need to be logged to the standard output, stored in node-level shared pod file. Altogether, this amounts to a nontrivial amount of overhead.
+
+On the other hand, abnormal amounts of requests will be successfully throttled by the enhancement, leading to less strain on the system from individual IPs. 
+
+Privacy 
+Client privacy is an issue with the enhancement, even though it is only logging IP addresses and timestamps. MapChat will comply with each of the seven GDPR privacy principles, including lawfulness, fairness and transparency, purpose limitation, data minimization, accuracy, storage limitation, and accountability. Logs containing IP addresses and timestamps will therefore only be stored for a very limited period, with the express purpose of analyzing and detecting IP addresses that are overusing services. Logs will not be shared or sold to any third-parties.
+
+Security
+Similarly related to privacy, issues arise with the new enhancement. Not only will MapChat be storing this new log data in pod-level files and in a persistent database, but it will be relaying the banned IP addresses through communication channels between the ThrottleManager component and each subscribed service. 
+If an attacker were able to gain access to the log data, they could piece together an idea of where a customer was geographically, and also by the timestamps, expose information about their habits and schedule. For this reason, it is necessary to protect the log-data with security protocols. For example, messages containing banned IP addresses sent to subscribed MapChat services will be encrypted using standard protocols including HTTPs. Authorization will be required for access to the relational database storing log-data, and the pod-level shared files. 
+
+### Use Cases
+
+#### Analyze Recent Logs
+
+Participating Actors
+90 end-users
+Entry Condition
+IP request < 100 in 10 seconds or less
+Normal Flow of Events
+Throttle manager checks the logs stored in logging database
+Retrieves recently saved logs 
+Analyzes recently saved log to check if threshold has been surpassed
+Exceptions
+Requests surpass 100 in less than 10 seconds
+Exit Condition
+Recently saved log in successfully analyzed and creates or adds to the counter of how many times that related IP has a requested a service
+
+#### Update BanList
+
+Participating Actors
+101 end-users
+Entry Condition
+IP request > 100 in 10 seconds or less
+Normal Flow of Events
+Throttle manager checks the logs stored in logging database
+Retrieves recently saved logs 
+Analyzes recently saved log to check if threshold has been surpassed 
+<<Event>> new BanList publishes in MapGroup Service local list
+Exceptions
+Less than 100 requests in less than 10 seconds
+Exit Condition
+BanList holds an additional IP address of the newly added subscribed user. 
+
+### Sequence Diagrams
+
+#### Throttling Manager Publishing a BanList
+
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Enhancement/images/throttle_manager_sequence.png" alt="throttle_sequence">
+
+The above diagram represents how we will unsubscribe IPs and establish a banlist within our MapGroup Service. The throttler manager will retrieve newly logged data from our Logging DB (by constantly listening) and analyze whether an unnecessary amount of requests were made within a service. If it was found that the IP address being analyzed has exceeded the  threshold of requests in a period of time , a new banlist will be published. 
+
+#### Logging sequence at node level
+
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Enhancement/images/node-level-logging-sequence.png" alt="node_logging_sequence">
+
+This sequence diagram represents the kubernetes nodes and how they play a part in our logging enhancement. Firstly, it is important to observe the shared pod storage which will hold all logs, which can be easily accessed by daemon services at a node level.  Although, for developer use the logs will be pushed to our logging DB which will collectively hold all logs. 
+
+#### Client Request
+
+<img src="https://github.com/chrisboyd/MapChat/blob/master/Enhancement/images/front_end_throttling_sequence.png" alt="front_end_throttle_sequence">
+
+Now that we have established a banlist and the sequence in which logs are made, how will we determine if a new request is allowed to be made based on our banlist? Every request made will go through the MapGroup Service, as before, where the banlist will be stored and checked in an efficient way. If the IP corresponding to the request exists on the banlist, the log will be printed out using stdout and the request will be rejected. If the IP is allowed, the log will be printed out using stdout and the action corresponding to the request will be executed.
+
+## Log Entry
+
+[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} “message on a per log entry basis”
+Each log entry starts with one of five standard hierarchy levels (in ascending order of importance):
+* TRACE
+* DEBUG
+* INFO
+* WARN
+* ERROR
+* FATAL
+
+Currently MapChat makes use of INFO for all status messages such as a REST controller receiving a request and ERROR for the notice that an IP address has breached the request threshold and has been added to the BanList.
+
+Sample Log File: 
+https://github.com/chrisboyd/MapChat/blob/master/Enhancement/mapgroup.log
+
+## Interfaces
+
+### Writing to Log Files
+
+Each pod writes to their respective log file through the stderr interface. Our logging system uses a policy to roll the log file over once it reaches 10MB. At which point a new log file will be created and the old one compressed.
+
+### DaemonSet writing to Log Database
+
+DaemonSet uses a standard SSH connection to write to the SQL database.
+
+### ThrottleManager
+* JPA interface to read from the log entry database.
+* RabbitMQ to publish the BanList for MapChat microservices to subscribe too 
 
 ## Lessons Learned
 
-For this project, the team encountered several problems from start to finish. At first, we spent a good amount of time deciding upon how to implement the architecture and different services. The team started off by deciding to use Node JS and to implement the application, however during the earlier implementation process it became clear that to switch from one webpage to the next, the process was quite tedious and incorporating the database (with all the users login information) would be quite difficult, so the team decided to try another approach using dynamic web application on eclipse. This approach got the front end started with the login page and main page of MapChat, and the backend team with Mapping services. Once the implementation process started, the two teams (frontend and backend) ran into requirement miscommunication, and as a result, the frontend ended up implementing part of the backend service. This caused duplication of efforts. Even with the things going in order, the team seemed to be running into several other miscommunication problems, and therefore, several other changes had to be made to both ends of the implementation. 
+Adding the logging and self-healing loop presented an interesting learning experience for the team. None of us had any experience with a logging framework before or, even, an awareness of how prevalent and mature they are. In hindsight this should be obvious but it was a collective blindspot in our knowledge. At first the concept of logging every state change the code goes through seems like a great deal of inefficiency and overhead. Looking into the performance of the Log4j2 and it becomes apparent that the overhead cost is minimal [3]. We barely took a step down the path of analysis, but here too, there is a lot for us to explore in future iterations of MapChat. Further steps must be taken for us to better develop as professional software engineers. 
+Fortunately the team did put into practice some lessons learned from the previous deliverable. We had a much clearer division of responsibility and lines of communication that led to little wasted efforts and more concurrent work. 
 
-The team continued with implementation until it was complete before moving onto deployment. This was a mistake. Someone should have been tasked with taking the current implementation and attempting to deploy it. Had we done so, many of the issues would have been reached sooner and given the team more time to find a solution, thus saving some long nights. From our research Netflix created Eureka explicitly for running their microservice architecture on AWS[10] so it was assumed to be easy to deploy. Unfortunately we were never able to get the services to connect with the Eureka server despite it running and being reachable from outside of AWS. If the team had started off with AWS-native solution instead, it would have saved a huge amount of time. Going forward, the AWS-native solution presented here will benefit from being well integrated throughout the whole DevOps cycle.
-
-Therefore, the biggest problems faced by the team were time management and miscommunication. The team walked back on some of the tools that make Agile software development successful, mainly using kanban cards. Going forward this will be given more attention to better assign tasks and have those tasks clearly defined.
 
 ## Conclusions
 
-Throughout the process of creating the application we came across several difficulties that were mostly related to us being new to working with some of the frameworks that we used. However, when properly understood and applied they made creating and working on this project easier. For example, Spring Boot created an easy environment to make REST API calls for GET, POST, PUT and DELETE commands since there are many annotations available that reduce the amount of code to write [10]. Furthermore, when comparing to other big companies and their application it is easy to see that the microservice-style architecture shares many advocates. It is the go to way to develop web applications and its usage is only increasing. Therefore, using and experimenting this software is a valuable lesson for all group members since it can help them develop future projects [11].
+The MapChat feels as though we have implemented a robust base logging system that allows us to add a great deal of functionality through complex analysis in the future. This follows our goals from the start of the project of building a modular system that can be easily evolved to cover many unforeseen use cases and additions.
 
+## Throttling Prototype
+
+If you press the 'Log Error' button it will simulate a user breaching the request threshold and trigger an error log entry. It will send an email to mapchatlogger@gmail.com. 
+
+https://masondarcy.github.io/
+
+## Code
+
+https://github.com/chrisboyd/mapchat-microservices/tree/aws
 
 ## References
-    
-[1]M. Hall, "Facebook | Overview, History, & Facts", Encyclopedia Britannica, 2020. [Online]. Available: https://www.britannica.com/topic/Facebook. [Accessed: 13- Nov- 2020].
-[2] A. Balalaie, A. Heydarnoori, P. Jamshidi, Microservices Migration Patterns, Technical Report No. 1, TRSUT-CE-ASE-2015-01, Automated Software Engineering Group, Sharif University of Technology, October, 2015 [Available Online at http://ase.ce.sharif.edu/pubs/techreports/TR-SUT-CE-ASE-2015-01-Microservices.pdf]
-[3] O. Elgabry, "Microservices with Spring Boot — Intro to Microservices (Part 1)", Medium, 2020. [Online]. Available: https://medium.com/omarelgabrys-blog/microservices-with-spring-boot-intro-to-microservices-part-1-c0d24cd422c3. [Accessed: 13- Nov- 2020].
-[4]"How to Break a Monolith Application into Microservices with Amazon Elastic Container Service, Docker, and Amazon EC2 | AWS", Amazon Web Services, Inc., 2020. [Online]. Available: https://aws.amazon.com/getting-started/hands-on/break-monolith-app-microservices-ecs-docker-ec2/ [Accessed: 13- Nov- 2020].
-[5] A. Balalaie, A. Heydarnoori and P. Jamshidi, "Microservices Architecture Enables DevOps: Migration to a Cloud-Native Architecture," in IEEE Software, vol. 33, no. 3, pp. 42-52, May-June 2016, doi: 10.1109/MS.2016.64. [Online] Available: https://ieeexplore.ieee.org/document/7436659
-[Accessed: 13- Nov- 2020].
-[6] "Spring Framework", Spring.io, 2020. [Online]. Available: https://spring.io/projects/spring-framework. [Accessed: 13- Nov- 2020].
-[7]"2. JPA Repositories", Docs.spring.io, 2020. [Online]. Available: https://docs.spring.io/spring-data/jpa/docs/1.5.0.RELEASE/reference/html/jpa.repositories.html. [Accessed: 13- Nov- 2020].
-[8]M. Yap, "Scaling Your Amazon RDS Instance Vertically and Horizontally | Amazon Web Services", Amazon Web Services, 2020. [Online]. Available: https://aws.amazon.com/blogs/database/scaling-your-amazon-rds-instance-vertically-and-horizontally/. [Accessed: 13- Nov- 2020].
-[9]G. Parimi, "Securing Spring Boot Microservices with JSON Web Tokens (JWT) - DZone Microservices", dzone.com, 2020. [Online]. Available: https://dzone.com/articles/securing-spring-boot-microservices-with-json-web-t. [Accessed: 13- Nov- 2020].
-[10]"Spring Boot Reference Guide", Docs.spring.io, 2020. [Online]. Available: https://docs.spring.io/spring-boot/docs/2.0.9.RELEASE/reference/html/. [Accessed: 15- Nov- 2020].
-[11]P. Francesco, I. Malavolta and P. Lago, "Research on Architecting Microservices: Trends, Focus, and Potential for Industrial Adoption", 2017 IEEE International Conference on Software Architecture (ICSA), 2017. Available: https://ieeexplore.ieee.org/abstract/document/7930195. [Accessed 15 November 2020].
+[1]"Throttling pattern - Cloud Design Patterns", Docs.microsoft.com, 2020. [Online]. Available: https://docs.microsoft.com/en-us/azure/architecture/patterns/throttling. [Accessed: 03- Dec- 2020]
+
+[2]R. Goers, "Getting the most out of the Log4j 2 API", Ralphgoers.com, 2020. [Online]. Available: https://www.ralphgoers.com/post/getting-the-most-out-of-the-log4j-2-api. [Accessed: 03- Dec- 2020]
+
+[3]R. Popma, "Log4j – Performance", Logging.apache.org, 2020. [Online]. Available: https://logging.apache.org/log4j/2.x/performance.html. [Accessed: 03- Dec- 2020]
+
 
 
 
