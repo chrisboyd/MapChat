@@ -55,7 +55,7 @@
   * [Enhancement Effects](#enhancement-effects)    
   * [Use Cases](#use-cases)
   * [Sequence Diagrams](#sequence-diagrams)
-* [Log Entry](*log-entry)
+* [Log Entry](#log-entry)
 * [Interfaces](#interfaces) 
 * [Lessons Learned](#lessons-learned)
 * [Conclusions](#conclusions)
